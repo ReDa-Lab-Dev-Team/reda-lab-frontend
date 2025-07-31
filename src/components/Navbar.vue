@@ -18,11 +18,12 @@
 </template>
 
 <script setup>
-defineOptions({
-  name: "ComponentNavbar",
-});
+  defineOptions({
+    name: "ComponentNavbar",
+  });
+
 </script>
 
 <style scoped>
-@import "@/assets/Homepage.css";
+@import "@/assets/Navbar.css";
 </style>

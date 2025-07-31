@@ -27,10 +27,10 @@ header {
   z-index: 1000;
 }
 
-.hero {
-  height: 100vh;
+.AboutUs-P {
+  height: 80vh;
   width: 100%;
-  background-image: url(/homepage-background.png);
+  background-image: url(/AboutUs/AboutUs-background.png);
   background-size: cover;
   background-position: center;
   position: relative;

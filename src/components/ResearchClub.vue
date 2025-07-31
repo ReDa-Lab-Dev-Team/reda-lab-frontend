@@ -49,6 +49,6 @@
 </script>
 
 <style scoped>
-@import "@/assets/Homepage.css";
+@import "@/assets/Resource-Card.css";
 </style>
 

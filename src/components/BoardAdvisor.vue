@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
     import ClubCard from './ClubCard.vue'
 </script>
 
@@ -11,4 +11,4 @@
       </div>
     </div>
   </section>
-</template>
+</template> -->

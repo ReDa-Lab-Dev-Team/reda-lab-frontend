@@ -22,10 +22,10 @@
 
   const AdvisorCard = {
     imageSrc: [
-      new URL(`/Advisor.png`, import.meta.url).href,
-      new URL(`/Advisor.png`, import.meta.url).href,
-      new URL(`/Advisor.png`, import.meta.url).href,
-      new URL(`/Advisor.png`, import.meta.url).href,
+      new URL(`/AboutUs/Advisor.png`, import.meta.url).href,
+      new URL(`/AboutUs/Advisor.png`, import.meta.url).href,
+      new URL(`/AboutUs/Advisor.png`, import.meta.url).href,
+      new URL(`/AboutUs/Advisor.png`, import.meta.url).href,
     ],
     title: [
       'Bunkloem PEL',
@@ -49,6 +49,6 @@
 </script>
 
 <style scoped>
-@import "@/assets/Homepage.css";
+@import "@/assets/Resource-Card.css";
 </style>
 

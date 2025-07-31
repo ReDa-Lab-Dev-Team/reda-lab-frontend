@@ -55,5 +55,5 @@
 </template>
 
 <style>
-@import "@/assets/Homepage.css";
+@import "@/assets/AboutUsPage.css";
 </style>
