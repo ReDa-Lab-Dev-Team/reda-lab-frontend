@@ -63,6 +63,16 @@ header {
   background-position: center;
   position: relative;
 }
+
+.AboutUs-P {
+  height: 95vh;
+  width: 100%;
+  background-image: url(/AboutUs-background.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
 .reda-lab-section {
   padding: 80px 0;
 }
