@@ -26,35 +26,7 @@ header {
   left: 0;
   z-index: 1000;
 }
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-.logo img {
-  height: 60px;
-  width: auto;
-}
-.nav-links {
-  display: flex;
-  list-style: none;
-}
-.nav-links li {
-  margin-left: 30px;
-}
-.nav-links a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-.nav-links a:hover {
-  color: #fc0;
-}
+
 .hero {
   height: 100vh;
   width: 100%;
@@ -63,6 +35,7 @@ header {
   background-position: center;
   position: relative;
 }
+
 .reda-lab-section {
   padding: 80px 0;
 }
@@ -96,50 +69,6 @@ header {
 .alternate {
   background-color: #f8f9fa;
 }
-.research-club-section {
-  padding: 80px 0;
-  background-color: #fff;
-}
-.club-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-}
-.club-card {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 250px;
-}
-.club-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #000000b3;
-  color: #fff;
-  padding: 15px;
-  transition: all 0.3s ease;
-}
-.card-overlay h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-.card-overlay p {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-.arrow-link {
-  display: block;
-  text-align: right;
-  color: #fff;
-  font-size: 20px;
-}
 .partners-section {
   padding: 80px 0;
   background-color: #f8f9fa;
@@ -164,98 +93,10 @@ header {
   max-width: 100%;
   height: auto;
 }
-footer {
-  background-color: #036;
-  color: #fff;
-  padding: 50px 0 0;
-}
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.footer-logo img {
-  height: 60px;
-  width: auto;
-}
-.footer-logo p {
-  font-size: 24px;
-  font-weight: 700;
-}
-.footer-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 30px;
-}
-.info-section {
-  flex: 1;
-  min-width: 200px;
-}
-.info-section h3 {
-  margin-bottom: 20px;
-  color: #fc0;
-  font-size: 18px;
-}
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  gap: 10px;
-}
-.info-item i {
-  color: #fc0;
-  margin-top: 3px;
-}
-.qr-code img {
-  width: 150px;
-  height: auto;
-}
-.copyright {
-  margin-top: 30px;
-  padding: 15px 0;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+
 @media (max-width: 768px) {
-  .navbar {
-    padding: 10px 20px;
-  }
-  .nav-links {
-    display: none;
-  }
   .section-content,
-  .section-content.reverse,
-  .footer-info {
+  .section-content.reverse{
     flex-direction: column;
   }
 }
-
-.club-card .card-text h3 {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s, transform 0.3s;
-}
-
-.club-card .card-text p {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s, transform 0.3s;
-  margin-bottom: 0;
-}
-
-.club-card:hover .card-text h3 {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-.club-card:hover .card-text p {
-  opacity: 1;
-  transform: translateY(0);
-}
-

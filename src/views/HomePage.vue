@@ -23,7 +23,7 @@
 
     <section class="reda-lab-section alternate">
       <div class="container">
-        <div class="section-content reverse">
+        <div class="section-content">
           <div class="image-container">
             <img
               src="/math-department.png"

@@ -62,5 +62,5 @@ defineOptions({
 </script>
 
 <style scoped>
-@import '@/assets/HomePage.css';
+  @import '@/assets/Footer.css';
 </style>

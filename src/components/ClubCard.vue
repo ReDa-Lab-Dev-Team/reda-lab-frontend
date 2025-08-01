@@ -1,23 +1,41 @@
 <template>
   <div class="club-card">
+    <a href="#" class="arrow-link">
+      <i class="fas fa-arrow-up-right-from-square"></i>
+    </a>
+
     <div class="images-row">
-      <img v-for="(url, idx) in imageUrls" :key="idx" :src="url" alt="LLM Research Club" />
+      <img :key="idx" :src="CardData.imageSrc" :alt="CardData.alt" />
     </div>
+
     <div class="card-overlay">
       <div class="card-text">
-        <h3>LLM Research Club</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <h3>{{ CardData.title }}</h3>
+        <p>{{ CardData.description }}</p>
       </div>
-      <a href="#" class="arrow-link"><i class="fas fa-arrow-right"></i></a>
     </div>
+
   </div>
 </template>
 
 <script setup>
-const imageSrc = new URL(`/research-club.png`, import.meta.url).href;
-const imageUrls = Array(4).fill(imageSrc);
+  import { defineProps } from 'vue';
+
+  // Define the props for the ClubCard component, to make this card is dynamic and can be reused with different data.
+  const props = defineProps({
+    CardData: {
+      type: Object,
+      required: true,
+      default: () => ({
+        imageSrc: '',
+        title: '',
+        description: '',
+        alt: ''
+      })
+    }
+  })
 </script>
 
 <style scoped>
-@import "@/assets/Homepage.css";
+  @import "@/assets/Card.css";
 </style>
