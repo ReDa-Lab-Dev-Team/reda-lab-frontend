@@ -25,5 +25,5 @@
 </script>
 
 <style scoped>
-@import "@/assets/Navbar.css";
+@import "@/assets/NavBar.css";
 </style>
