@@ -3,58 +3,60 @@
   margin: 0 auto;
   padding: 0 20px;
 }
+
 footer {
   background-color: #036;
   color: #fff;
   padding: 50px 0 0;
 }
+
 .footer-content {
   display: flex;
-  flex-direction: column;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; 
+  align-items: flex-start;
 }
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+
 .footer-logo img {
-  height: 60px;
+  height: 80px;
   width: auto;
 }
-.footer-logo p {
-  font-size: 24px;
-  font-weight: 700;
-}
-.footer-info {
+
+.logo-section {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 30px;
+  justify-content: center;
+  align-items: center;
 }
+
 .info-section {
-  flex: 1;
   min-width: 200px;
+  max-width: 280px;
 }
+
 .info-section h3 {
   margin-bottom: 20px;
   color: #fc0;
   font-size: 18px;
 }
+
 .info-item {
   display: flex;
   align-items: flex-start;
   margin-bottom: 15px;
   gap: 10px;
 }
+
 .info-item i {
   color: #fc0;
   margin-top: 3px;
 }
+
 .qr-code img {
   width: 150px;
   height: auto;
 }
+
 .copyright {
   margin-top: 30px;
   padding: 15px 0;
@@ -62,8 +64,10 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 768px) {
-  .footer-info {
-    flex-direction: column;
+/* Fix for mobile view */
+@media (max-width: 992px) {
+  .footer-content {
+    /* On smaller screens, it's better to center the items */
+    justify-content: center;
   }
 }
