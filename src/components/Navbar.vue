@@ -7,11 +7,11 @@
         </a>
       </div>
       <ul :class="['nav-links', { 'dark-links': isScrolled }]">
-        <li><a href="/AboutUs">About us</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">Board Members</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><RouterLink to="/AboutUs">About us</RouterLink></li>
+        <li><RouterLink to="/Projects">Projects</RouterLink></li>
+        <li><RouterLink to="/Events">Events</RouterLink></li>
+        <li><RouterLink to="/Board-Members">Board Members</RouterLink></li>
+        <li><RouterLink to="/Contact">Contact</RouterLink></li>
       </ul>
     </nav>
   </header>

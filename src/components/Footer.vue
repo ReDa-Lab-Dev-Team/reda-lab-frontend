@@ -50,7 +50,7 @@
       <!-- QR Code -->
       <div class="info-section qr-section">
         <div class="qr-code">
-          <img src="/QRCode.png" alt="QR Code" />
+          <img src="/qr.png" alt="QR Code" />
         </div>
       </div>
 
@@ -58,7 +58,7 @@
 
 
     <div class="copyright">
-      <p>&copy; 2025 ReDa Lab</p>
+      <p>&copy; 2025 Department of Applied Mathematics & Statistics. All rights reserved.</p>
     </div>
   </footer>
 </template>
