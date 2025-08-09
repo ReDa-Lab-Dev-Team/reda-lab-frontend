@@ -1,9 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+
 body {
   margin: 0;
   padding: 0;
@@ -27,14 +22,14 @@ header {
   z-index: 1000;
 }
 
-.AboutUs-P {
+/* .AboutUs-P {
   height: 80vh;
   width: 100%;
   background-image: url(/AboutUs/AboutUs-background.png);
   background-size: cover;
   background-position: center;
   position: relative;
-}
+} */
 
 .reda-lab-section {
   padding: 80px 0;
