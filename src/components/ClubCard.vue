@@ -14,28 +14,27 @@
         <p>{{ CardData.description }}</p>
       </div>
     </div>
-
   </div>
 </template>
 
 <script setup>
-  import { defineProps } from 'vue';
+import { defineProps } from "vue";
 
-  // Define the props for the ClubCard component, to make this card is dynamic and can be reused with different data.
-  const props = defineProps({
-    CardData: {
-      type: Object,
-      required: true,
-      default: () => ({
-        imageSrc: '',
-        title: '',
-        description: '',
-        alt: ''
-      })
-    }
-  })
+// Define the props for the ClubCard component, to make this card is dynamic and can be reused with different data.
+defineProps({
+  CardData: {
+    type: Object,
+    required: true,
+    default: () => ({
+      imageSrc: "",
+      title: "",
+      description: "",
+      alt: "",
+    }),
+  },
+});
 </script>
 
 <style scoped>
-  @import "@/assets/Card.css";
+@import "@/assets/Card.css";
 </style>

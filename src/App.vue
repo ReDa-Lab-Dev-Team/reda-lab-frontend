@@ -1,8 +1,8 @@
 <script setup>
-  import Navbar from './components/Navbar.vue'
-  import Footer from './components/Footer.vue'
-  import { RouterView } from 'vue-router'
-</script> 
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
+import { RouterView } from "vue-router";
+</script>
 
 <template>
   <div id="app">
@@ -13,12 +13,6 @@
 </template>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
