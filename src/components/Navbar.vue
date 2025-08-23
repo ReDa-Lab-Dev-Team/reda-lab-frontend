@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav :class="['navbar', { 'scrolled': isScrolled}]">
+    <nav :class="['navbar', { scrolled: isScrolled }]">
       <div class="logo">
         <a href="/">
           <img :src="isScrolled ? reda_Logo_Blue : reda_Logo_Light" alt="ReDa Lab Logo" />
@@ -18,29 +18,28 @@
 </template>
 
 <script setup>
-  import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from "vue";
 
-  const isScrolled = ref(false);
+const isScrolled = ref(false);
 
-  const handleScroll = () => {
-    isScrolled.value = window.scrollY > 50;
-  }
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50;
+};
 
-  onMounted(() => {
-    window.addEventListener('scroll', handleScroll);
-  })
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
 
-  onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll);
-  })
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 
-  defineOptions({
-    name: "ComponentNavbar",
-  });
+defineOptions({
+  name: "ComponentNavbar",
+});
 
-  const reda_Logo_Light = "/ReDa-Icon.png";
-  const reda_Logo_Blue = "/ReDa-Icon-Blue.png";
-
+const reda_Logo_Light = "/ReDa-Icon.png";
+const reda_Logo_Blue = "/ReDa-Icon-Blue.png";
 </script>
 
 <style scoped>
