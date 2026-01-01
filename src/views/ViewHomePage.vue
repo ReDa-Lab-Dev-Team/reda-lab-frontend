@@ -19,8 +19,13 @@
       </template>
     </HeroSection>
 
-    <div class="mt-12"></div>
-    <CoreValue />
+    <div class="my-12">
+      <CoreValue />
+    </div>
+
+    <div class="my-12">
+      <LatestNewsSection />
+    </div>
 
     <ResearchClub />
     <Partners />
@@ -36,6 +41,7 @@ import ResearchClub from "@/components/ResearchClub.vue";
 import Partners from "@/components/Partners.vue";
 import HeroSection from "@/components/HeroSection.vue";
 import CoreValue from "@/components/home/CoreValue.vue";
+import LatestNewsSection from "@/components/home/LatestNewsSection.vue";
 import Button from "primevue/button";
 </script>
 
