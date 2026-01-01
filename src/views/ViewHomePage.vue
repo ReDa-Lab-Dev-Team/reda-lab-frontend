@@ -19,6 +19,9 @@
       </template>
     </HeroSection>
 
+    <div class="mt-12"></div>
+    <CoreValue />
+
     <ResearchClub />
     <Partners />
   </div>
@@ -32,6 +35,7 @@ defineOptions({
 import ResearchClub from "@/components/ResearchClub.vue";
 import Partners from "@/components/Partners.vue";
 import HeroSection from "@/components/HeroSection.vue";
+import CoreValue from "@/components/home/CoreValue.vue";
 import Button from "primevue/button";
 </script>
 
