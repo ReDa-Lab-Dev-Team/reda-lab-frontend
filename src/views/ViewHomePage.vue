@@ -25,6 +25,7 @@
 
     <div class="my-12">
       <LatestNewsSection />
+      <FeaturedProjectsSection />
     </div>
 
     <ResearchClub />
@@ -42,6 +43,7 @@ import Partners from "@/components/Partners.vue";
 import HeroSection from "@/components/HeroSection.vue";
 import CoreValue from "@/components/home/CoreValue.vue";
 import LatestNewsSection from "@/components/home/LatestNewsSection.vue";
+import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection.vue";
 import Button from "primevue/button";
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="py-12 px-4 bg-gradient-to-b from-blue-900/0 to-blue-900/100 text-white">
+  <section class="py-12 px-4 bg-gradient-to-b from-blue-900/0 to-blue-900/50 text-white">
     <div class="max-w-7xl mx-auto">
       <!-- Section Header -->
       <div class="mb-8">
@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay } from "swiper/modules";
+// import { Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import NewsCard from "@/components/ui/NewsCard.vue";
 
