@@ -34,7 +34,3 @@ defineProps({
   },
 });
 </script>
-
-<style scoped>
-@import "@/assets/Card.css";
-</style>

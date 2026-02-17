@@ -24,7 +24,3 @@ const partners = [
   { src: new URL("/partner-league.png", import.meta.url).href, alt: "League" },
 ];
 </script>
-
-<style scoped>
-@import "@/assets/Homepage.css";
-</style>

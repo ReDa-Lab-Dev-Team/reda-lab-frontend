@@ -69,7 +69,3 @@ defineOptions({
   name: "ComponentFooter",
 })
 </script>
-
-<style scoped>
-  @import '@/assets/Footer.css';
-</style>

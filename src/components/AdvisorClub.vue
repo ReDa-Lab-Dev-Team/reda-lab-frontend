@@ -38,7 +38,3 @@ const AdvisorCard = {
   alt: ["Advisor Image 1", "Advisor Image 2", "Advisor Image 3", "Advisor Image 4"],
 };
 </script>
-
-<style scoped>
-@import "@/assets/Resource-Card.css";
-</style>

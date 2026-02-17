@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import AboutUsPage from "@/views/AboutUsPage.vue";
+import AboutUsPageView from "@/views/AboutUsPageView.vue";
 import NotFoundPage from "@/views/NotFoundPage.vue";
 import ContactPage from "@/views/ContactPage.vue";
 import ProjectsPage from "@/views/ProjectsPage.vue";
@@ -11,35 +11,35 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: HomePageView
+    component: HomePageView,
   },
 
   {
     path: "/AboutUs",
     name: "About-Us",
-    component: AboutUsPage
+    component: AboutUsPageView,
   },
   {
     path: "/Contact",
     name: "Contact",
-    component: ContactPage
+    component: ContactPage,
   },
 
   {
     path: "/Projects",
     name: "Projects",
-    component: ProjectsPage
+    component: ProjectsPage,
   },
   {
     path: "/Projects/id",
     name: "Project",
-    component: ProjectPage
+    component: ProjectPage,
   },
   {
     path: "/:catchAll(.*)",
     name: "NotFound",
     component: NotFoundPage,
-  }
+  },
 ];
 
 const router = createRouter({

@@ -3,7 +3,7 @@
     <div class="container">
       <h2>Our Research Club</h2>
       <div class="club-cards">
-        <ClubCard 
+        <ClubCard
           v-for="(url, idx) in ResearchCard.imageSrc"
           :key="idx"
           :CardData="{
@@ -47,8 +47,3 @@
     ]
 }
 </script>
-
-<style scoped>
-@import "@/assets/Resource-Card.css";
-</style>
-
