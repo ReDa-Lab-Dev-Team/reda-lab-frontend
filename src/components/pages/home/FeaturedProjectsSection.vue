@@ -1,7 +1,7 @@
 <template>
   <section class="py-12 px-4 bg-gradient-to-b from-blue-900/50 to-blue-900/0 text-white">
     <div class="max-w-7xl mx-auto">
-      <!-- Section Header -->
+      Section Header
       <div class="mb-8">
         <h2 class="text-3xl font-bold mb-4">Latest News</h2>
         <p class="text-xl opacity-90 text-blue-900">
@@ -10,41 +10,24 @@
       </div>
 
       <!-- Featured Projects Grid system -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <!-- Large Card (Left) -->
-        <div class="col-span-1 lg:col-span-1">
-          <ProjectCard
-            :key="featuredProjects[0].id"
-            :title="featuredProjects[0].title"
-            :description="featuredProjects[0].description"
-            :image="featuredProjects[0].image"
-            :overlayTitle="featuredProjects[0].category"
-            :team="featuredProjects[0].team.members"
-          />cd
-        </div>
-
-        <!-- Right Column Cards -->
-        <div class="col-span-1 lg:col-span-2 h-full">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
-            <ProjectCard
-              v-for="project in featuredProjects.slice(1)"
-              :is-small-card="true"
-              :key="project.id"
-              :title="project.title"
-              :description="project.description"
-              :image="project.image"
-              :overlayTitle="project.category"
-              :team="project.team.members"
-            />
-          </div>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <FeaturedProjectCard
+          v-for="project in featuredProjects"
+          :key="project.id"
+          :title="project.title"
+          :date="'Aug 15, 2024'"
+          :readTime="'5 min read'"
+          :author="'N. Vanna'"
+          :authorImage="'/profiles/adolf.jpg'"
+          :image="project.image"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import ProjectCard from "@/components/ProjectCard.vue";
+import FeaturedProjectCard from "./FeaturedProjectCard.vue";
 
 const featuredProjects = [
   {

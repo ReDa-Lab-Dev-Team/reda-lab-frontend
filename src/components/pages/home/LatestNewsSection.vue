@@ -19,17 +19,12 @@
       >
         <SwiperSlide v-for="(card, index) in newsCards" :key="index">
           <NewsCard
-            :imageUrl="card.imageUrl"
-            :overlayTitle="card.overlayTitle"
-            :overlaySubtitles="card.overlaySubtitles"
-            :overlayFooter="card.overlayFooter"
-            :tag="card.tag"
+            :image="card.imageUrl"
             :title="card.title"
             :date="card.date"
-            :duration="card.duration"
-            :authorName="card.authorName"
-            :authorImage="card.authorImage"
-            :buttonText="card.buttonText"
+            :read-time="card.duration"
+            :author="card.authorName"
+            :author-image="card.authorImage"
           />
         </SwiperSlide>
       </Swiper>
@@ -39,12 +34,8 @@
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-// import { Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import NewsCard from "@/components/NewsCard.vue";
-
-// register auto play
-// Swiper.use([Autoplay]);
+import NewsCard from "./NewsCard.vue";
 
 const swiperBreakpoints = {
   640: {
