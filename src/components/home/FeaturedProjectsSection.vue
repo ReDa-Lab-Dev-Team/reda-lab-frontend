@@ -20,7 +20,7 @@
             :image="featuredProjects[0].image"
             :overlayTitle="featuredProjects[0].category"
             :team="featuredProjects[0].team.members"
-          />
+          />cd
         </div>
 
         <!-- Right Column Cards -->
@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import ProjectCard from "@/components/ui/ProjectCard.vue";
+import ProjectCard from "@/components/ProjectCard.vue";
 
 const featuredProjects = [
   {

@@ -41,7 +41,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 // import { Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import NewsCard from "@/components/ui/NewsCard.vue";
+import NewsCard from "@/components/NewsCard.vue";
 
 // register auto play
 // Swiper.use([Autoplay]);
@@ -59,11 +59,6 @@ const swiperBreakpoints = {
     slidesPerView: 3,
     spaceBetween: 30,
   },
-};
-
-const autoplayConfig = {
-  delay: 5000,
-  disableOnInteraction: false,
 };
 
 const newsCards = [

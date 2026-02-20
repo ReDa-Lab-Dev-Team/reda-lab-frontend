@@ -1,4 +1,3 @@
-<!-- CommunityCard.vue -->
 <template>
   <div class="p-6 md:p-8 border-b border-gray-200 last:border-b-0">
     <div class="flex flex-col md:flex-row gap-6">

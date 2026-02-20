@@ -68,6 +68,7 @@ const reda_Logo_Light = "/ReDa-Icon.png";
 const reda_Logo_Blue = "/ReDa-Icon-Blue.png";
 
 const navItems = [
+  { name: "Home", link: "/" },
   { name: "About Us", link: "/AboutUs" },
   { name: "Projects", link: "/Projects" },
   { name: "Events", link: "/Events" },

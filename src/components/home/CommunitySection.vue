@@ -37,7 +37,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import CommunityCard from '../ui/CommunityCard.vue';
+import CommunityCard from '../CommunityCard.vue';
 
 const cards = ref([
   {

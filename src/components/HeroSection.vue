@@ -41,10 +41,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineOptions({
   name: "HeroSection",
 });
+
+defineSlots<{
+  cta?: () => any;
+}>();
 
 const props = defineProps({
   // Hero background section props

@@ -91,8 +91,6 @@
 </template>
 
 <script setup lang="ts">
-import { DefineProps } from "vue";
-
 defineProps({
   imageUrl: {
     type: String,
