@@ -37,7 +37,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import CommunityCard from '../CommunityCard.vue';
+import CommunityCard from './CommunityCard.vue';
 
 const cards = ref([
   {
@@ -117,7 +117,3 @@ function startAutoScroll() {
   }, 5000); // Scroll every 5 seconds
 }
 </script>
-
-<style scoped>
-/* Optional: add any custom styles here */
-</style>

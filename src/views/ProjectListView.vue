@@ -52,6 +52,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  name: "ProjectsListView",
+});
+
 import NewProjectCard from "@/components/NewProjectCard.vue";
 import ProjectCard from "@/components/ProjectCard.vue";
 </script>

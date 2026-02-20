@@ -59,6 +59,6 @@ import { defineOptions } from "vue";
 import AdvisorClub from "@/components/AdvisorClub.vue";
 
 defineOptions({
-  name: "AboutUsPageView",
+  name: "AboutView",
 });
 </script>

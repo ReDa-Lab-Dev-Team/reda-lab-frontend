@@ -1,45 +1,44 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
-import AboutUsPageView from "@/views/AboutUsPageView.vue";
-import NotFoundPage from "@/views/NotFoundPage.vue";
-import ContactPage from "@/views/ContactPage.vue";
-import ProjectsPage from "@/views/ProjectsPage.vue";
-import ProjectPage from "@/views/ProjectPage.vue";
-import HomePageView from "@/views/HomePageView.vue";
+import HomeView from "@/views/HomeView.vue";
+import AboutView from "@/views/AboutView.vue";
+import ContactView from "@/views/ContactView.vue";
+import ProjectListView from "@/views/ProjectListView.vue";
+import ProjectDetailView from "@/views/ProjectDetailView.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
 
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Home",
-    component: HomePageView,
+    component: HomeView,
   },
 
   {
     path: "/AboutUs",
     name: "About-Us",
-    component: AboutUsPageView,
+    component: AboutView,
   },
   {
     path: "/Contact",
     name: "Contact",
-    component: ContactPage,
+    component: ContactView,
   },
-
   {
     path: "/Projects",
     name: "Projects",
-    component: ProjectsPage,
+    component: ProjectListView,
   },
   {
-    path: "/Projects/id",
+    path: "/Projects/:id",
     name: "Project",
-    component: ProjectPage,
+    component: ProjectDetailView,
   },
   {
     path: "/:catchAll(.*)",
     name: "NotFound",
-    component: NotFoundPage,
+    component: NotFoundView,
   },
 ];
 

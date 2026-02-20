@@ -53,6 +53,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  name: "ProjectDetailView",
+});
+
 import DownloadPDFButton from "@/components/DownloadPDFButton.vue";
 import MemberCard from "@/components/MemberCard.vue";
 const UserObject = {

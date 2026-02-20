@@ -28,6 +28,10 @@
       <FeaturedProjectsSection />
     </div>
 
+    <div class="my-12">
+      <CommunitySection />
+    </div>
+
     <ResearchClub />
     <Partners />
   </div>
@@ -35,16 +39,15 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: "ViewHomepage",
+  name: "HomeView",
 });
 
 import ResearchClub from "@/components/ResearchClub.vue";
-import Partners from "@/components/Partners.vue";
 import HeroSection from "@/components/HeroSection.vue";
-import CoreValue from "@/components/home/CoreValue.vue";
-import LatestNewsSection from "@/components/home/LatestNewsSection.vue";
-import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection.vue";
+import CoreValue from "@/components/pages/home/CoreValue.vue";
+import LatestNewsSection from "@/components/pages/home/LatestNewsSection.vue";
+import FeaturedProjectsSection from "@/components/pages/home/FeaturedProjectsSection.vue";
+import CommunitySection from "@/components/pages/home/CommunitySection.vue";
+
 import Button from "primevue/button";
 </script>
-
-<style scoped></style>
