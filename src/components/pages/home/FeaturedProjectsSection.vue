@@ -1,109 +1,99 @@
-<template>
-  <section class="py-12 px-4 bg-gradient-to-b from-blue-900/50 to-blue-900/0 text-white">
-    <div class="max-w-7xl mx-auto">
-      Section Header
-      <div class="mb-8">
-        <h2 class="text-3xl font-bold mb-4">Latest News</h2>
-        <p class="text-xl opacity-90 text-blue-900">
-          See our ReDA upcoming events and News update.
-        </p>
-      </div>
-
-      <!-- Featured Projects Grid system -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeaturedProjectCard
-          v-for="project in featuredProjects"
-          :key="project.id"
-          :title="project.title"
-          :date="'Aug 15, 2024'"
-          :readTime="'5 min read'"
-          :author="'N. Vanna'"
-          :authorImage="'/profiles/adolf.jpg'"
-          :image="project.image"
-        />
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
-import FeaturedProjectCard from "./FeaturedProjectCard.vue";
+import { ref, computed } from "vue";
+import ProjectCard from "@/components/common/ProjectCard.vue";
+import type { Props as ProjectCardProps } from "@/components/common/ProjectCard.vue";
 
-const featuredProjects = [
+interface Project extends ProjectCardProps {
+  id: number;
+}
+
+const projects = ref<Project[]>([
   {
     id: 1,
     title: "Khmer Text Summarization",
-    category: "NLP API",
     description:
-      "Develops a Large Language Model (LLM) approach to condense Khmer documents into clear, concise summaries, making information more accessible for research, education, and the public.",
-    team: {
-      members: [
-        { name: "N. Vanna", avatar: "/profiles/adolf.jpg" },
-        { name: "M. Danielle", avatar: "/profiles/danielle.jpg" },
-      ],
-      additionalCount: 6,
-    },
-    image: "/project-image-01.png",
-    graphic: "https://picsum.photos/seed/picsum/400/200",
+      "A project focused on developing a text summarization model for the Khmer language, utilizing advanced natural language processing techniques to generate concise and coherent summaries from longer texts. A project focused on developing a text summarization model for the Khmer language, utilizing advanced natural language processing techniques to generate concise and coherent summaries from longer texts.A project focused on developing a text summarization model for the Khmer language, utilizing advanced natural language processing techniques to generate concise and coherent summaries from longer texts.A project focused on developing a text summarization model for the Khmer language, utilizing advanced natural language processing techniques to generate concise and coherent summaries from longer texts.A project focused on developing a text summarization model for the Khmer language, utilizing advanced natural language processing techniques to generate concise and coherent summaries from longer texts.A project focused on developing a text summarization model for the Khmer language, utilizing advanced natural language processing techniques to generate concise and coherent summaries from longer texts.",
+    // image: "https://via.placeholder.com/600x300",
+    image: "https://picsum.photos/400/300",
+    club: "CV Club",
+    status: "On going",
+    team: [
+      { name: "N. Vanna", avatar: "https://i.pravatar.cc/40?img=1" },
+      { name: "N. Tina", avatar: "https://i.pravatar.cc/40?img=2" },
+      { name: "Others", avatar: "https://i.pravatar.cc/40?img=3" },
+    ],
   },
   {
     id: 2,
-    title: "Face Detection and Face Recognition",
-    category: "AI/ML",
-    description:
-      "A project focused on developing robust face detection and recognition systems for security and authentication.",
-    team: {
-      members: [
-        { name: "N. Vanna", avatar: "/profiles/adolf.jpg" },
-        { name: "M. Danielle", avatar: "/profiles/danielle.jpg" },
-      ],
-      additionalCount: 4,
-    },
-    image: "/project-image-02.webp",
+    title: "FINTECH Project Management",
+    image: "https://picsum.photos/400/300",
+    club: "Business Club",
+    status: "Done",
+    team: [
+      { name: "N. Vanna", avatar: "https://i.pravatar.cc/40?img=4" },
+      { name: "S. Rachana", avatar: "https://i.pravatar.cc/40?img=5" },
+    ],
   },
   {
     id: 3,
-    title: "FINTECH Project Management",
-    category: "Finance",
-    description:
-      "A platform to streamline project management processes for financial technology companies.",
-    team: {
-      members: [
-        { name: "N. Vanna", avatar: "/profiles/adolf.jpg" },
-        { name: "M. Danielle", avatar: "/profiles/danielle.jpg" },
-      ],
-    },
-    image: "/project-image-03.png",
+    title: "CAMTour Chatbot",
+    image: "https://picsum.photos/400/300",
+    club: "CV Club",
+    status: "On going",
+    team: [
+      { name: "N. Tina", avatar: "https://i.pravatar.cc/40?img=6" },
+      { name: "S. Rachana", avatar: "https://i.pravatar.cc/40?img=7" },
+    ],
   },
   {
     id: 4,
-    title: "Course Recommendation System",
-    category: "Education",
-    description:
-      "An AI-powered system to recommend personalized courses to students based on their interests and learning history.",
-    team: {
-      members: [{ name: "N. Vanna", avatar: "/profiles/adolf.jpg" }],
-    },
-    image: "https://picsum.photos/seed/picsum/400/250",
+    title: "AI Finance Assistant",
+    image: "https://picsum.photos/400/300",
+    club: "Tech Club",
+    status: "Done",
+    team: [{ name: "Dara", avatar: "https://i.pravatar.cc/40?img=8" }],
   },
   {
     id: 5,
-    title: "CAMTour Chatbot",
-    category: "Tourism",
-    description:
-      "A chatbot designed to assist tourists in exploring Cambodia by providing recommendations and answering queries.",
-    team: {
-      members: [
-        { name: "N. Vanna", avatar: "/profiles/adolf.jpg" },
-        { name: "M. Danielle", avatar: "/profiles/danielle.jpg" },
-      ],
-      additionalCount: 3,
-    },
-    image: "https://picsum.photos/seed/picsum/400/250",
+    title: "E-Commerce Analytics",
+    image: "https://picsum.photos/400/300",
+    club: "Business Club",
+    status: "On going",
+    team: [{ name: "Sokha", avatar: "https://i.pravatar.cc/40?img=9" }],
   },
-];
+]);
+
+const bigProject = computed(() => projects.value[0]);
+const smallProjects = computed(() => projects.value.slice(1, 5));
 </script>
 
-<style scoped>
-/* No additional styling needed as we're using Tailwind CSS classes */
-</style>
+<template>
+  <div class="max-w-7xl mx-auto px-4 py-8">
+    <!-- ================= DESKTOP VIEW ================= -->
+    <div class="hidden lg:grid lg:grid-cols-3 lg:grid-rows-2 gap-6">
+      <!-- Big Card -->
+      <div class="col-span-1 row-span-2">
+        <ProjectCard v-bind="bigProject" size="large" />
+      </div>
+
+      <!-- Small Cards Grid -->
+      <!-- <div class="col-span-2 grid grid-cols-2 gap-6"> -->
+      <ProjectCard
+        v-for="project in smallProjects"
+        :key="project.id"
+        v-bind="project"
+        size="small"
+      />
+      <!-- </div> -->
+    </div>
+
+    <!-- ================= MOBILE VIEW ================= -->
+    <div class="lg:hidden">
+      <div class="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-4">
+        <div v-for="project in smallProjects" :key="project.id" class="min-w-[85%] snap-start">
+          <ProjectCard v-bind="project" size="small" />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

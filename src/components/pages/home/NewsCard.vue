@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { truncateAtWordBoundary } from "@/utils";
+import Button from "@/components/ui/Button.vue";
+import Badge from "@/components/ui/Badge.vue";
 
 interface Props {
   image: string;
@@ -29,11 +31,7 @@ defineProps<Props>();
     <!-- Content -->
     <div class="p-6 space-y-4">
       <!-- Badge -->
-      <span
-        class="inline-block px-4 py-1.5 text-sm font-semibold bg-blue-900 text-white rounded-xl shadow-md"
-      >
-        News Update
-      </span>
+      <Badge variant="blue" size="medium" rounded="xl" :shadow="true"> News Update </Badge>
 
       <!-- Title -->
       <h2
@@ -79,10 +77,6 @@ defineProps<Props>();
     </div>
 
     <!-- Floating Button -->
-    <button
-      class="absolute bottom-6 right-6 px-5 py-2 bg-black text-white rounded-full text-sm font-medium shadow-lg hover:bg-blue-900 transition-all duration-300 hover:scale-105"
-    >
-      Read more
-    </button>
+    <Button text="Read more" color="black" />
   </div>
 </template>

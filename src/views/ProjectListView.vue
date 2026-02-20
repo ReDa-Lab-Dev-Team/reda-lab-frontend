@@ -1,3 +1,12 @@
+<script setup>
+defineOptions({
+  name: "ProjectsListView",
+});
+
+import NewProjectCard from "@/components/NewProjectCard.vue";
+import ProjectCard from "@/components/common/ProjectCard.vue";
+</script>
+
 <template>
   <section
     class="bg-[linear-gradient(rgba(26,54,93,0.9),rgba(21,50,90,0.9)),url('/ITC2.png')] bg-cover bg-center flex items-center min-h-[60vh]"
@@ -50,12 +59,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-defineOptions({
-  name: "ProjectsListView",
-});
-
-import NewProjectCard from "@/components/NewProjectCard.vue";
-import ProjectCard from "@/components/ProjectCard.vue";
-</script>
