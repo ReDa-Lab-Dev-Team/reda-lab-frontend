@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import type { RouteRecordRaw } from "vue-router";
 
 import AboutUsPageView from "@/views/AboutUsPageView.vue";
 import NotFoundPage from "@/views/NotFoundPage.vue";
@@ -7,7 +8,7 @@ import ProjectsPage from "@/views/ProjectsPage.vue";
 import ProjectPage from "@/views/ProjectPage.vue";
 import HomePageView from "@/views/HomePageView.vue";
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Home",
