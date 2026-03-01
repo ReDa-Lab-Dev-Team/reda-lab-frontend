@@ -1,9 +1,10 @@
+import Hero from "@/components/common/hero";
 import ResearchUnitCollection from "./research-unit-collection";
 
 const Home = () => {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
       <div className="min-h-screen bg-[#082035] flex items-center justify-center">
         <ResearchUnitCollection />
       </div>
