@@ -1,10 +1,26 @@
 const Hero = () => {
   return (
-    <div className="relative bg-[#0f3a5d] pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      {/* Abstract Background Shapes */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-800/20 -skew-x-12 translate-x-20 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen">
+      {/* Background Image with Gradient Overlay */}
+      <div
+        className="absolute inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.85),  rgba(15, 58, 93, 0.85)), url('/homepage-background.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        aria-hidden="true"
+      ></div>
 
+      {/* Abstract Background Shapes */}
+      {/* <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-800/20 -skew-x-12 translate-x-20 pointer-events-none z-10"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none z-10"></div> */}
+
+      <div
+        className="absolute inset-0 bg-black bg-opacity-30 z-0"
+        aria-hidden="true"
+      ></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl">
           <h2 className="text-blue-300 font-medium mb-2 tracking-wide uppercase text-sm">
