@@ -3,6 +3,7 @@ import ValuesSection from "./value-section";
 import ResearchUnitCollection from "./research-unit-section";
 import FeaturedProjects from "./project-section";
 import TrainingServices from "./training-service-section";
+import EventsSection from "./event-section";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <ResearchUnitCollection />
       <FeaturedProjects />
       <TrainingServices />
+      <EventsSection />
     </>
   );
 };
