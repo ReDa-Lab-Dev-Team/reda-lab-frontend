@@ -1,31 +1,41 @@
 const Hero = () => {
   return (
-    <section
-      className="relative h-[90vh] bg-cover bg-center flex items-center"
-      style={{ backgroundImage: `url("/ITC2.png")` }}
-    >
-      <div className="absolute inset-0 bg-blue-900/70"></div>
+    <div className="relative bg-[#0f3a5d] pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      {/* Abstract Background Shapes */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-800/20 -skew-x-12 translate-x-20 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-white">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          Welcome to <span className="text-blue-300">ReDA Lab</span>
-        </h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-3xl">
+          <h2 className="text-blue-300 font-medium mb-2 tracking-wide uppercase text-sm">
+            Welcome to
+          </h2>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            ReDA Lab
+          </h1>
+          <p className="text-xl text-blue-100 mb-4 font-light">
+            A Research and Data Analytics Laboratory of <br />
+            <span className="font-semibold text-white">
+              Department of Applied Mathematics and Statistics
+            </span>
+          </p>
+          <p className="text-blue-200 mb-8 max-w-2xl leading-relaxed">
+            in Institute of Technology of Cambodia. A community of thinkers and
+            doers — driving Research, sparking Innovation, strengthening Social
+            bonds, and creating lasting Impact.
+          </p>
 
-        <p className="max-w-xl text-lg mb-6">
-          A Research and Data Analytics Laboratory of Department of Applied
-          Mathematics and Statistics.
-        </p>
-
-        <div className="flex gap-4">
-          <button className="bg-white text-blue-900 px-6 py-2 rounded-full font-medium">
-            View Research Units
-          </button>
-          <button className="bg-blue-600 px-6 py-2 rounded-full font-medium">
-            Explore Training Service
-          </button>
+          <div className="flex flex-wrap gap-4">
+            <button className="bg-white text-[#0f3a5d] px-6 py-3 rounded-md font-semibold hover:bg-blue-50 transition flex items-center gap-2">
+              View Research Units
+            </button>
+            <button className="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white/10 transition flex items-center gap-2">
+              Explore Training Service
+            </button>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
