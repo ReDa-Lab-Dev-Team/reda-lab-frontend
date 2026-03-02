@@ -1,5 +1,4 @@
+import ResearchersSection from "./researchers-section";
 export const AboutUs = () => {
-  return (
-    <div>AboutUs</div>
-  )
-}
+  return <ResearchersSection />;
+};

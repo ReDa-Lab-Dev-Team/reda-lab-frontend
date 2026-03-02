@@ -13,8 +13,8 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About Us", href: "#about" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
     { name: "Research Unit", href: "#research" },
     { name: "Training Services", href: "#training" },
     { name: "Community", href: "#community" },
@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-[#0f3a5d] shadow-lg py-3" : "bg-transparent py-5"}`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-primary shadow-lg py-3" : "bg-transparent py-5"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -65,7 +65,12 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <Button onClick={() => setIsOpen(!isOpen)} className="text-white">
+            <Button
+              onClick={() => setIsOpen(!isOpen)}
+              className={
+                scrolled ? "bg-white text-primary" : "bg-primary text-white"
+              }
+            >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </Button>
           </div>
@@ -74,13 +79,15 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-[#0f3a5d] border-t border-blue-800 absolute w-full">
+        <div
+          className={`md:hidden bg-primary ${scrolled ? "bg-primary border-primary" : "bg-white border-white"} border-t  absolute w-full`}
+        >
           <div className="px-4 pt-2 pb-6 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-3 text-base font-medium text-black hover:bg-blue-800 rounded-md"
+                className={`block px-3 py-3 text-base font-medium ${scrolled ? "text-white hover:bg-blue-800" : "text-primary hover:bg-blue-100"} rounded-md`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
