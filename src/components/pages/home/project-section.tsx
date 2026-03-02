@@ -26,7 +26,7 @@ const FeaturedProjects = () => {
     // <section className="py-20 bg-[#e6f0f8]">
     <section className="py-20 bg-gradient-to-b from-[var(--primary)] to-[#ffffff]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CenteredTitle title="Featured Projects" />
+        <CenteredTitle title="Featured Projects" className="text-white"/>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {projectData.map((project, idx) => (

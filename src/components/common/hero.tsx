@@ -5,7 +5,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 w-full h-full z-0"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.85),  rgba(2, 67, 109, 1)), url('/homepage-background.png')`,
+          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.85),  rgba(0, 89, 149, 0.9)), url('/homepage-background.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -18,8 +18,8 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none z-10"></div> */}
 
       <div
-        // className="absolute inset-0 bg-black bg-opacity-30 z-0"
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 bg-black bg-opacity-30 z-0"
+        // className="absolute inset-0 z-0"
         aria-hidden="true"
       ></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

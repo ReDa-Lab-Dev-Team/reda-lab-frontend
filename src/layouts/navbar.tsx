@@ -32,7 +32,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <div className="w-auto h-10 rounded-full flex items-center justify-center text-[#0f3a5d] font-bold text-xl">
               <img
-                src="/ReDa-Icon.png"
+                src={`${scrolled ? "/ReDa-Icon.png" : "/ReDa-Icon-Blue.png"}`}
                 alt="ReDA Lab Logo"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -51,12 +51,14 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-black hover:text-yellow-400 text-sm font-medium transition-colors"
+                className={`text-sm font-medium transition-colors ${scrolled ? "text-white hover:text-yellow-400" : "text-primary hover:text-yellow-400"}`}
               >
                 {link.name}
               </a>
             ))}
-            <Button className="bg-white/10 p-2 rounded-full text-white hover:bg-white/20 transition">
+            <Button
+              className={`bg-white/10 p-2 rounded-full hover:bg-white/20 transition ${scrolled ? "text-white" : "text-primary"}`}
+            >
               <Search size={18} />
             </Button>
           </div>

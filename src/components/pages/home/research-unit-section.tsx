@@ -2,6 +2,7 @@ import { type ResearchUnitProps, ResearchUnitCard } from "./research-unit-card";
 import { motion, AnimatePresence } from "framer-motion";
 import CenteredTitle from "@/components/common/centered-title";
 import { getRandomItems } from "@/utils/randomSelection";
+import { useEffect, useState } from "react";
 
 // // --- Mock Data (Based on your image) ---
 const unitData: ResearchUnitProps[] = [
@@ -12,22 +13,18 @@ const unitData: ResearchUnitProps[] = [
     coreTheme:
       "LLM fine-tuning, architecture optimization, applied LLMs, Khmer NLP.",
     leaders: ["Ngen Tina", "Phat Soma Nita"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop", // Placeholder AI image
+    imageUrl: "/meymey_siv_aquared.png", // Placeholder AI image
   },
   {
-    title: "LLM Application & Research Club",
+    title: "Rizzing Clubs",
     description:
       "Explore cutting-edge technologies in large language models (LLMs) and apply them to real-world challenges, from AI assistants to Khmer NLP and model optimization.",
     coreTheme:
       "LLM fine-tuning, architecture optimization, applied LLMs, Khmer NLP.",
     leaders: ["Ngen Tina", "Phat Soma Nita"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop", // Placeholder AI image
+    imageUrl: "/b_sl_o.jpg", // Placeholder AI image
   },
 ];
-
-import React, { useEffect, useState } from "react";
 
 const REFRESH_INTERVAL = 5000; // 5 seconds
 
@@ -46,7 +43,7 @@ const ResearchUnitSection = () => {
   return (
     <section id="research" className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CenteredTitle title="Our Research Units" />
+        <CenteredTitle title="Our Research Units" className="text-white" />
         <div>
           <AnimatePresence mode="wait">
             <motion.div
