@@ -26,7 +26,7 @@ const values: ValueCardProps[] = [
 
 const ValuesSection = () => {
   return (
-    <div className="bg-[#0a2a45] py-12 border-b border-blue-800/50">
+    <div className="bg-primary py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((v, idx) => (

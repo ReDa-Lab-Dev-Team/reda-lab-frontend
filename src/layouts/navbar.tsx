@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Menu, Search, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -50,21 +51,21 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-yellow-400 text-sm font-medium transition-colors"
+                className="text-black hover:text-yellow-400 text-sm font-medium transition-colors"
               >
                 {link.name}
               </a>
             ))}
-            <button className="bg-white/10 p-2 rounded-full text-white hover:bg-white/20 transition">
+            <Button className="bg-white/10 p-2 rounded-full text-white hover:bg-white/20 transition">
               <Search size={18} />
-            </button>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white">
+            <Button onClick={() => setIsOpen(!isOpen)} className="text-white">
               {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -77,7 +78,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-3 text-base font-medium text-white hover:bg-blue-800 rounded-md"
+                className="block px-3 py-3 text-base font-medium text-black hover:bg-blue-800 rounded-md"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
