@@ -15,7 +15,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Research Unit", href: "#research" },
+    { name: "Research Unit", href: "/research" },
     { name: "Training Services", href: "#training" },
     { name: "Community", href: "#community" },
     { name: "Publication", href: "#publication" },
