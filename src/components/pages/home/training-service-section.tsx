@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { type TrainingCardProps, TrainingCard } from "./training-card";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import CenteredTitle from "@/components/common/centered-title";
+import PrimarySectionHeader from "@/components/common/primary-section-header";
 
 const trainingServices: TrainingCardProps[] = [
   {
@@ -66,7 +66,10 @@ export default function TrainingSection() {
   return (
     <section id="training" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CenteredTitle title="Our Training Services" className="text-primary" />
+        <PrimarySectionHeader
+          title="Our Training Services"
+          className="text-primary"
+        />
 
         {/* Carousel */}
         <div className="overflow-hidden pb-6" ref={emblaRef}>

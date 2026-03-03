@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ProjectCard, type ProjectCardProps } from "./project-card";
-import CenteredTitle from "@/components/common/centered-title";
+import PrimarySectionHeader from "@/components/common/primary-section-header";
+("@/components/common/primary-section-header");
 
 const projectData: ProjectCardProps[] = [
   {
@@ -26,7 +27,10 @@ const FeaturedProjects = () => {
     // <section className="py-20 bg-[#e6f0f8]">
     <section className="py-20 bg-gradient-to-b from-[var(--primary)] to-[#ffffff]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CenteredTitle title="Featured Projects" className="text-white"/>
+        <PrimarySectionHeader
+          title="Featured Projects"
+          className="text-white"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {projectData.map((project, idx) => (

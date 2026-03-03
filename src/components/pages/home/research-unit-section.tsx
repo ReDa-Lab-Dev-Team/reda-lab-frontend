@@ -1,6 +1,6 @@
 import { type ResearchUnitProps, ResearchUnitCard } from "./research-unit-card"; // Importing the type for props
 import { motion, AnimatePresence } from "framer-motion";
-import CenteredTitle from "@/components/common/centered-title";
+import PrimarySectionHeader from "@/components/common/primary-section-header";
 import { getRandomItems } from "@/utils/randomSelection";
 import { useEffect, useState } from "react";
 
@@ -43,7 +43,7 @@ const ResearchUnitSection = () => {
   return (
     <section id="research" className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CenteredTitle title="Our Research Units" className="text-white" />
+        <PrimarySectionHeader title="Our Research Units" className="text-white" />
         <div>
           <AnimatePresence mode="wait">
             <motion.div

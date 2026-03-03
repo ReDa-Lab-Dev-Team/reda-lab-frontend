@@ -1,4 +1,10 @@
 import ResearchersSection from "./researchers-section";
+import AboutRedaSection from "./about-reda-section";
 export const AboutUs = () => {
-  return <ResearchersSection />;
+  return (
+    <>
+      <AboutRedaSection />;
+      <ResearchersSection />;
+    </>
+  );
 };
