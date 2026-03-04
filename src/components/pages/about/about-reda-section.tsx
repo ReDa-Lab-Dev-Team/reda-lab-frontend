@@ -1,57 +1,46 @@
+import { useEffect, useState } from "react";
 import SecondarySectionHeader from "@/components/common/secondary-section-header";
-import { CaroucelImages, type Slides } from "./carousel-images";
+import { CarouselImages, type Slides } from "./carousel-images";
 import { PillarSection, type Pillar } from "./pillar-section";
 import { Goal, HeartPlus, Eye } from "lucide-react";
+import { fetchAboutSlides, fetchPillars } from "@/services/dataService";
+import type { AboutSlideData, PillarData, PillarIconName } from "@/types";
 
-const slidesData: Slides[] = [
-  {
-    id: 1,
-    src: "/meymey_siv_aquared.png",
-    alt: "Slide 1",
-    backgroundColor: "#f0f0f0",
-  },
-  {
-    id: 2,
-    src: "/project-image-01.png",
-    alt: "Slide 2",
-    backgroundColor: "#e0e0e0",
-  },
-];
+// Map serialisable icon names -> JSX elements (resolved at render time)
+const PILLAR_ICON_MAP: Record<PillarIconName, React.ReactNode> = {
+  Goal: <Goal className="w-12 h-12" color="#1a3a5c" />,
+  Eye: <Eye className="w-12 h-12 text-[#1a3a5c]" />,
+  HeartPlus: <HeartPlus className="w-12 h-12 text-[#1a3a5c]" />,
+};
 
-const pillars: Pillar[] = [
-  {
-    title: "Our Mission",
-    icon: <Goal className="w-12 h-12" color="#1a3a5c" />,
-    items: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Cras aliquam est et diam rhoncus, eu fermentum enim rhoncus.",
-      "Sed viverra nibh nec finibus sagittis.",
-      "Praesent interdum justo nec arcu porta pharetra.",
-    ],
-  },
-  {
-    title: "Our Vision",
-    icon: <Eye className="w-12 h-12 text-[#1a3a5c]" />,
-    items: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Cras aliquam est et diam rhoncus, eu fermentum enim rhoncus.",
-      "Sed viverra nibh nec finibus sagittis.",
-      "Praesent interdum justo nec arcu porta pharetra.",
-    ],
-  },
-  {
-    title: "Our Values",
-    icon: <HeartPlus className="w-12 h-12 text-[#1a3a5c]" />,
-    items: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Cras aliquam est et diam rhoncus, eu fermentum enim rhoncus.",
-      "Sed viverra nibh nec finibus sagittis.",
-      "Praesent interdum justo nec arcu porta pharetra.",
-    ],
-  },
-];
+const toSlide = (d: AboutSlideData): Slides => ({
+  id: d.id,
+  src: d.src,
+  alt: d.alt,
+  backgroundColor: d.backgroundColor,
+});
+
+const toPillar = (d: PillarData): Pillar => ({
+  title: d.title,
+  icon: PILLAR_ICON_MAP[d.iconName],
+  items: d.items,
+});
 
 export default function AboutRedaSection() {
+  const [slides, setSlides] = useState<AboutSlideData[]>([]);
+  const [pillars, setPillars] = useState<PillarData[]>([]);
+
+  useEffect(() => {
+    fetchAboutSlides().then((data) => {
+      // console.log("Fetch slides: ", data);
+      setSlides(data);
+    });
+    fetchPillars().then((data) => {
+      // console.log("Fetch pillars: ", data);
+      setPillars(data);
+    });
+  }, []);
+
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-12 font-sans">
       {/* Header */}
@@ -70,10 +59,10 @@ export default function AboutRedaSection() {
       />
 
       {/* Carousel */}
-      <CaroucelImages slides={slidesData} />
+      {slides.length > 0 && <CarouselImages slides={slides.map(toSlide)} />}
 
       {/* Mission / Vision / Values */}
-      <PillarSection pillars={pillars} />
+      <PillarSection pillars={pillars.map(toPillar)} />
     </section>
   );
 }

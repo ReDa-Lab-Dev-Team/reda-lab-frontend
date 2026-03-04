@@ -1,51 +1,16 @@
+import { useEffect, useState } from "react";
 import SecondarySectionHeader from "@/components/common/secondary-section-header";
-import { useState } from "react";
-
-const partners = [
-  //   {
-  //     name: "Kotlin",
-  //     img: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Kotlin_icon_%282016-2021%29.svg",
-  //   },
-  {
-    name: "TypeScript",
-    img: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
-  },
-  {
-    name: "React",
-    img: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-  },
-  {
-    name: "Vite",
-    img: "https://api.iconify.design/logos:vitejs.svg",
-  },
-  {
-    name: "Python",
-    img: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
-  },
-  {
-    name: "Astral UV",
-    img: "https://docs.astral.sh/uv/assets/logo-letter.svg",
-  },
-  {
-    name: "Git",
-    img: "	https://www.svgrepo.com/show/303548/git-icon-logo.svg",
-  },
-  {
-    name: "GitHub",
-    img: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
-  },
-  {
-    name: "Docker",
-    img: "	https://www.svgrepo.com/show/452192/docker.svg",
-  },
-  {
-    name: "PostgreSQL",
-    img: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Logo_PostgreSQL.png",
-  },
-];
+import { fetchPartners } from "@/services/dataService";
+import type { PartnerData } from "@/types";
 
 export default function PartnersSection() {
+  const [partners, setPartners] = useState<PartnerData[]>([]);
   const [hovered, setHovered] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetchPartners().then(setPartners);
+  }, []);
+
   return (
     <div className="max-w-7xl mx-auto mb-10 px-6 py-10 bg-white font-sans">
       {/* Header */}
@@ -61,7 +26,7 @@ export default function PartnersSection() {
       <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-14">
         {partners.map((p, i) => (
           <div
-            key={p.name}
+            key={p.id}
             title={p.name}
             className="cursor-pointer"
             style={{
@@ -76,7 +41,7 @@ export default function PartnersSection() {
             onMouseLeave={() => setHovered(null)}
           >
             <img
-              src={p.img}
+              src={p.logoUrl}
               alt={p.name}
               className="object-contain w-16 h-16 sm:w-20 sm:h-20"
             />

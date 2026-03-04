@@ -1,60 +1,61 @@
-import { type ResearchUnitProps, ResearchUnitCard } from "./research-unit-card"; // Importing the type for props
+import { type ResearchUnitProps, ResearchUnitCard } from "./research-unit-card";
 import { motion, AnimatePresence } from "framer-motion";
 import PrimarySectionHeader from "@/components/common/primary-section-header";
 import { getRandomItems } from "@/utils/randomSelection";
 import { useEffect, useState } from "react";
+import { fetchResearchUnits } from "@/services/dataService";
+import type { ResearchUnitData } from "@/types";
 
-// // --- Mock Data (Based on your image) ---
-const unitData: ResearchUnitProps[] = [
-  {
-    title: "LLM Application & Research Club",
-    description:
-      "Explore cutting-edge technologies in large language models (LLMs) and apply them to real-world challenges, from AI assistants to Khmer NLP and model optimization.",
-    coreTheme:
-      "LLM fine-tuning, architecture optimization, applied LLMs, Khmer NLP.",
-    leaders: ["Ngen Tina", "Phat Soma Nita"],
-    imageUrl: "/meymey_siv_aquared.png", // Placeholder AI image
-  },
-  {
-    title: "Rizzing Clubs",
-    description:
-      "Explore cutting-edge technologies in large language models (LLMs) and apply them to real-world challenges, from AI assistants to Khmer NLP and model optimization.",
-    coreTheme:
-      "LLM fine-tuning, architecture optimization, applied LLMs, Khmer NLP.",
-    leaders: ["Ngen Tina", "Phat Soma Nita"],
-    imageUrl: "/b_sl_o.jpg", // Placeholder AI image
-  },
-];
+const toCardProps = (d: ResearchUnitData): ResearchUnitProps => ({
+  title: d.title,
+  description: d.description,
+  coreTheme: d.coreTheme,
+  leaders: d.leaders,
+  imageUrl: d.imageUrl,
+});
 
-const REFRESH_INTERVAL = 5000; // 5 seconds
+const REFRESH_INTERVAL = 5000;
 
 const ResearchUnitSection = () => {
-  const [randomUnit, setRandomUnit] = useState<ResearchUnitProps>(
-    () => getRandomItems(unitData, 1)[0],
-  );
+  const [units, setUnits] = useState<ResearchUnitData[]>([]);
+  const [randomUnit, setRandomUnit] = useState<ResearchUnitProps | null>(null);
 
   useEffect(() => {
+    fetchResearchUnits().then((data) => {
+      setUnits(data);
+      if (data.length > 0)
+        setRandomUnit(toCardProps(getRandomItems(data, 1)[0]));
+    });
+  }, []);
+
+  useEffect(() => {
+    if (units.length === 0) return;
     const interval = setInterval(() => {
-      setRandomUnit(getRandomItems(unitData, 1)[0]);
+      setRandomUnit(toCardProps(getRandomItems(units, 1)[0]));
     }, REFRESH_INTERVAL);
     return () => clearInterval(interval);
-  }, []);
+  }, [units]);
 
   return (
     <section id="research" className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <PrimarySectionHeader title="Our Research Units" className="text-white" />
+        <PrimarySectionHeader
+          title="Our Research Units"
+          className="text-white"
+        />
         <div>
           <AnimatePresence mode="wait">
-            <motion.div
-              key={randomUnit.title + randomUnit.leaders.join(",")}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.5 }}
-            >
-              <ResearchUnitCard {...randomUnit} />
-            </motion.div>
+            {randomUnit && (
+              <motion.div
+                key={randomUnit.title + randomUnit.leaders.join(",")}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -40 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ResearchUnitCard {...randomUnit} />
+              </motion.div>
+            )}
           </AnimatePresence>
         </div>
       </div>

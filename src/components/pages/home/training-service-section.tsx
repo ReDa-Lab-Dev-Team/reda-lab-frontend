@@ -1,53 +1,27 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { type TrainingCardProps, TrainingCard } from "./training-card";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import PrimarySectionHeader from "@/components/common/primary-section-header";
+import { fetchTrainings } from "@/services/dataService";
+import type { TrainingData } from "@/types";
 
-const trainingServices: TrainingCardProps[] = [
-  {
-    title: "Introduction to Power BI",
-    description:
-      "Learn how to connect to and visualize data, growing skills that help drive a data culture so that everyone can make better decisions based on data.",
-    duration: "24 hours",
-    price: "$120",
-    lecturer: "Dr. PHAUK Sokkhey",
-  },
-  {
-    title: "Advanced Excel for Business Analytics",
-    description:
-      "Master advanced Excel functions, pivot tables, and data visualization techniques to transform raw data into actionable business insights and reports.",
-    duration: "18 hours",
-    price: "$95",
-    lecturer: "Prof. Ngen Tina",
-  },
-  {
-    title: "Python for Data Science",
-    description:
-      "Build a strong foundation in Python programming for data analysis, including libraries like Pandas, NumPy, and Matplotlib for real-world data applications.",
-    duration: "30 hours",
-    price: "$150",
-    lecturer: "Prof. Phat Soma Nita",
-  },
-  {
-    title: "Data Storytelling with Tableau",
-    description:
-      "Discover how to create compelling visual narratives with Tableau. Learn to design interactive dashboards that communicate complex data with clarity and impact.",
-    duration: "20 hours",
-    price: "$110",
-    lecturer: "Aldous",
-  },
-  {
-    title: "SQL for Data Analysis",
-    description:
-      "Develop practical SQL skills to query, filter, and aggregate data from databases. Perfect for aspiring data analysts and business intelligence professionals.",
-    duration: "16 hours",
-    price: "$85",
-    lecturer: "Leomord",
-  },
-];
+const toCardProps = (d: TrainingData): TrainingCardProps => ({
+  title: d.title,
+  description: d.description,
+  duration: d.duration,
+  price: d.price,
+  lecturer: d.lecturer,
+});
 
 export default function TrainingSection() {
+  const [trainings, setTrainings] = useState<TrainingData[]>([]);
+
+  useEffect(() => {
+    fetchTrainings().then(setTrainings);
+  }, []);
+
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
@@ -74,12 +48,12 @@ export default function TrainingSection() {
         {/* Carousel */}
         <div className="overflow-hidden pb-6" ref={emblaRef}>
           <div className="flex">
-            {trainingServices.map((service, index) => (
+            {trainings.map((service) => (
               <div
-                key={index}
+                key={service.id}
                 className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-4"
               >
-                <TrainingCard {...service} />
+                <TrainingCard {...toCardProps(service)} />
               </div>
             ))}
           </div>

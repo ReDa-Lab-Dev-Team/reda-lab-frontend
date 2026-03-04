@@ -8,11 +8,11 @@ type Slides = {
   backgroundColor?: string;
 };
 
-type CaroucelImagesProps = {
+type CarouselImagesProps = {
   slides: Slides[];
 };
 
-export const CaroucelImages = ({ slides }: CaroucelImagesProps) => {
+export const CarouselImages = ({ slides }: CarouselImagesProps) => {
   const [current, setCurrent] = useState(0);
 
   const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
