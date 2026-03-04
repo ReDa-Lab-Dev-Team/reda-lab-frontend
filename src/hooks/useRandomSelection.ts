@@ -41,7 +41,7 @@ export const useRandomSelection = <T extends Record<string, any>>(
   );
 
   const previousIdsRef = useRef<Set<string | number>>(new Set());
-  const timerRef = useRef<NodeJS.Timeout>();
+  const timerRef = useRef<number | null>(null);
 
   // Refresh function
   const refresh = useCallback(() => {
@@ -64,17 +64,19 @@ export const useRandomSelection = <T extends Record<string, any>>(
 
   useEffect(() => {
     if (autoRefresh) {
-      timerRef.current = setInterval(refresh, refreshInterval);
+      timerRef.current = window.setInterval(refresh, refreshInterval);
       return () => {
-        if (timerRef.current) {
+        if (timerRef.current !== null) {
           clearInterval(timerRef.current);
+          timerRef.current = null;
         }
       };
     }
     // Cleanup if autoRefresh is turned off
     return () => {
-      if (timerRef.current) {
+      if (timerRef.current !== null) {
         clearInterval(timerRef.current);
+        timerRef.current = null;
       }
     };
   }, [autoRefresh, refresh, refreshInterval]);

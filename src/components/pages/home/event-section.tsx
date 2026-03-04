@@ -1,6 +1,6 @@
 // import { ArrowUpRight } from "@phosphor-icons/react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { type EventCardProps, EventCard } from "./event-card";
 import { ArrowUpRight, RefreshCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
