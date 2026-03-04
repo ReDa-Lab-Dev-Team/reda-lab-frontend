@@ -84,5 +84,5 @@ export interface PillarData {
   id: string;
   iconName: PillarIconName;
   title: string;
-  items: string[];
+  textBullets: string[];
 }

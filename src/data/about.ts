@@ -26,7 +26,7 @@ export const pillars: PillarData[] = [
     id: "pillar-mission",
     iconName: "Goal",
     title: "Our Mission",
-    items: [
+    textBullets: [
       "Advance applied research in data science and AI for Cambodia.",
       "Foster a collaborative research community within academic institutions.",
       "Bridge the gap between research outcomes and real-world applications.",
@@ -37,7 +37,7 @@ export const pillars: PillarData[] = [
     id: "pillar-vision",
     iconName: "Eye",
     title: "Our Vision",
-    items: [
+    textBullets: [
       "To be the leading AI and data science research lab in Southeast Asia.",
       "Create an open, inclusive research culture that attracts global talent.",
       "Produce research that directly benefits Cambodian society and economy.",
@@ -48,7 +48,7 @@ export const pillars: PillarData[] = [
     id: "pillar-values",
     iconName: "HeartPlus",
     title: "Our Values",
-    items: [
+    textBullets: [
       "Integrity — honest and transparent in all research endeavours.",
       "Curiosity — always asking why and seeking deeper understanding.",
       "Collaboration — stronger together than apart.",

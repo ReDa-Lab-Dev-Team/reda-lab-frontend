@@ -1,29 +1,15 @@
 import { useEffect, useState } from "react";
 import SecondarySectionHeader from "@/components/common/secondary-section-header";
 import { CarouselImages, type Slides } from "./carousel-images";
-import { PillarSection, type Pillar } from "./pillar-section";
-import { Goal, HeartPlus, Eye } from "lucide-react";
+import PillarCards from "./pillar-cards";
 import { fetchAboutSlides, fetchPillars } from "@/services/dataService";
-import type { AboutSlideData, PillarData, PillarIconName } from "@/types";
-
-// Map serialisable icon names -> JSX elements (resolved at render time)
-const PILLAR_ICON_MAP: Record<PillarIconName, React.ReactNode> = {
-  Goal: <Goal className="w-12 h-12" color="#1a3a5c" />,
-  Eye: <Eye className="w-12 h-12 text-[#1a3a5c]" />,
-  HeartPlus: <HeartPlus className="w-12 h-12 text-[#1a3a5c]" />,
-};
+import type { AboutSlideData, PillarData } from "@/types";
 
 const toSlide = (d: AboutSlideData): Slides => ({
   id: d.id,
   src: d.src,
   alt: d.alt,
   backgroundColor: d.backgroundColor,
-});
-
-const toPillar = (d: PillarData): Pillar => ({
-  title: d.title,
-  icon: PILLAR_ICON_MAP[d.iconName],
-  items: d.items,
 });
 
 export default function AboutRedaSection() {
@@ -62,7 +48,7 @@ export default function AboutRedaSection() {
       {slides.length > 0 && <CarouselImages slides={slides.map(toSlide)} />}
 
       {/* Mission / Vision / Values */}
-      <PillarSection pillars={pillars.map(toPillar)} />
+      {pillars.length > 0 && <PillarCards pillars={pillars} />}
     </section>
   );
 }

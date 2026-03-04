@@ -12,8 +12,8 @@ export default function AboutUs() {
         bottomText="People · Purpose · Progress"
       />
       <AboutRedaSection />;
-      {/* <ResearchersSection />;
-      <PartnersSection />; */}
+      <ResearchersSection />;
+      <PartnersSection />;
     </>
   );
 };
