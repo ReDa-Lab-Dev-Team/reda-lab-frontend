@@ -1,4 +1,4 @@
-import SecondaryHero from "@/components/common/secondary-hero";
+import HeroSecondary from "@/components/common/hero-secondary";
 import AboutRedaSection from "./about-reda-section";
 import ResearchersSection from "./researchers-section";
 import PartnersSection from "./partners-section";
@@ -6,7 +6,7 @@ import PartnersSection from "./partners-section";
 export default function AboutUs() {
   return (
     <>
-      <SecondaryHero
+      <HeroSecondary
         topText="Who We Are"
         mainTitle="About Us"
         bottomText="People · Purpose · Progress"
@@ -16,4 +16,4 @@ export default function AboutUs() {
       <PartnersSection />;
     </>
   );
-};
+}
