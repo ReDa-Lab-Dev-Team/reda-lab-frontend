@@ -24,14 +24,14 @@ export interface ResearchUnitData {
 }
 
 // ── Projects ─────────────────────────────────────────────────────────────────
-export interface ProjectData {
-  id: string;
-  title: string;
-  description: string;
-  coreTheme: string;
-  leaders: string[];
-  imageUrl?: string;
-}
+// export interface ProjectData {
+//   id: string;
+//   title: string;
+//   description: string;
+//   coreTheme: string;
+//   leaders: string[];
+//   imageUrl?: string;
+// }
 
 // ── Training services ────────────────────────────────────────────────────────
 export interface TrainingData {
@@ -85,4 +85,29 @@ export interface PillarData {
   iconName: PillarIconName;
   title: string;
   textBullets: string[];
+}
+
+
+// ── Project page ────────────────────────────────────────────────────────────────
+export interface Author {
+  name: string;
+  initials: string;
+  avatarUrl?: string;
+}
+
+export interface ProjectTag {
+  label: string;
+  variant?: "default" | "secondary" | "outline" | "destructive" | "success"; // Added custom success variant logic below
+}
+
+export interface ProjectData {
+  id: number;
+  title: string;
+  description?: string;
+  imageColor?: string; // Simulating images with colored backgrounds for demo
+  imageUrl?: string;
+  tags: ProjectTag[];
+  authors: Author[];
+  isFeatured?: boolean;
+  logo?: string;
 }

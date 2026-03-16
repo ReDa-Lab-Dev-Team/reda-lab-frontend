@@ -1,10 +1,10 @@
 import FakeSection from "@/components/common/fake-section";
-import SecondaryHero from "@/components/common/secondary-hero";
+import HeroSecondary from "@/components/common/hero-secondary";
 
 export default function NotFoundPage() {
   return (
     <>
-      <SecondaryHero
+      <HeroSecondary
         topText="404 Error"
         mainTitle="Not Found"
         bottomText="Sorry, the page you are looking for does not exist."
