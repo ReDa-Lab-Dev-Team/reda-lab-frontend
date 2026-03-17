@@ -15,7 +15,7 @@ export interface ValueData {
 
 // ── Research Units ───────────────────────────────────────────────────────────
 export interface ResearchUnitData {
-  id: string;
+  id: number;
   title: string;
   description: string;
   coreTheme: string;
@@ -24,14 +24,20 @@ export interface ResearchUnitData {
 }
 
 // ── Projects ─────────────────────────────────────────────────────────────────
-// export interface ProjectData {
-//   id: string;
-//   title: string;
-//   description: string;
-//   coreTheme: string;
-//   leaders: string[];
-//   imageUrl?: string;
-// }
+export interface Project {
+  id: number;
+  title: string;
+  description?: string;
+  image: string;
+  tags: string[];
+  status: "On going" | "Done" | "Completed";
+  members: Array<{
+    name: string;
+    avatar?: string;
+  }>;
+  additionalCount?: number;
+  isFeatured?: boolean;
+}
 
 // ── Training services ────────────────────────────────────────────────────────
 export interface TrainingData {
@@ -86,7 +92,6 @@ export interface PillarData {
   title: string;
   textBullets: string[];
 }
-
 
 // ── Project page ────────────────────────────────────────────────────────────────
 export interface Author {
