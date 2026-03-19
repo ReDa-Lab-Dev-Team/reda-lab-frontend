@@ -15,7 +15,7 @@ export interface ValueData {
 
 // ── Research Units ───────────────────────────────────────────────────────────
 export interface ResearchUnitData {
-  id: string;
+  id: number;
   title: string;
   description: string;
   coreTheme: string;
@@ -24,7 +24,6 @@ export interface ResearchUnitData {
 }
 
 // ── Projects ─────────────────────────────────────────────────────────────────
-<<<<<<< HEAD
 export interface ProjectType {
   id: number;
   title: string;
@@ -39,16 +38,6 @@ export interface ProjectType {
   additionalCount?: number;
   isFeatured?: boolean;
 }
-=======
-// export interface ProjectData {
-//   id: string;
-//   title: string;
-//   description: string;
-//   coreTheme: string;
-//   leaders: string[];
-//   imageUrl?: string;
-// }
->>>>>>> parent of 577237f (vol vol)
 
 export type Project = ProjectType;
 
@@ -120,7 +109,6 @@ export interface PillarData {
   textBullets: string[];
 }
 
-
 // ── Project page ────────────────────────────────────────────────────────────────
 export interface Author {
   name: string;
@@ -136,7 +124,6 @@ export interface ProjectTag {
 export interface ProjectData {
   id: number;
   title: string;
-<<<<<<< HEAD
   slug?: string;
   description?: string | null;
   image_url?: string | null;
@@ -145,13 +132,3 @@ export interface ProjectData {
   contributors?: ProjectContributorData[];
   categories?: ProjectCategoryData[];
 }
-=======
-  description?: string;
-  imageColor?: string; // Simulating images with colored backgrounds for demo
-  imageUrl?: string;
-  tags: ProjectTag[];
-  authors: Author[];
-  isFeatured?: boolean;
-  logo?: string;
-}
->>>>>>> parent of 577237f (vol vol)
