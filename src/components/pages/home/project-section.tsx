@@ -50,34 +50,40 @@ import ProjectCard from "@/components/common/project-card";
 // export default FeaturedProjects;
 
 
-export default function ProjectsSection() {
-  // Splitting data to match the layout: 
-  // Left Column: Featured + Khmer Text
-  // Right Column: The 2x2 grid
-  const leftColumnProjects = projects.filter(p => [1, 2].includes(p.id));
-  const rightColumnProjects = projects.filter(p => [3, 4, 5, 6].includes(p.id));
+// export default function ProjectsSection() {
+//   // Splitting data to match the layout: 
+//   // Left Column: Featured + Khmer Text
+//   // Right Column: The 2x2 grid
+//   const leftColumnProjects = projects.filter(p => [1, 2].includes(p.id));
+//   const rightColumnProjects = projects.filter(p => [3, 4, 5, 6].includes(p.id));
 
-  return (
-    <section className="w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8 bg-white">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+//   return (
+//     <section className="w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8 bg-white">
+//       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
-        {/* LEFT COLUMN (Takes up roughly 5/12 on large screens) */}
-        <div className="lg:col-span-5 flex flex-col gap-6">
-          {leftColumnProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+//         {/* LEFT COLUMN (Takes up roughly 5/12 on large screens) */}
+//         <div className="lg:col-span-5 flex flex-col gap-6">
+//           {leftColumnProjects.map((project) => (
+//             <ProjectCard key={project.id} project={project} />
+//           ))}
+//         </div>
 
-        {/* RIGHT COLUMN (Takes up roughly 7/12 on large screens) */}
-        <div className="lg:col-span-7">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {rightColumnProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </div>
+//         {/* RIGHT COLUMN (Takes up roughly 7/12 on large screens) */}
+//         <div className="lg:col-span-7">
+//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+//             {rightColumnProjects.map((project) => (
+//               <ProjectCard key={project.id} project={project} />
+//             ))}
+//           </div>
+//         </div>
 
-      </div>
-    </section>
-  );
-}
+//       </div>
+//     </section>
+//   );
+// }
+
+// export const project-section = () => {
+//   return (
+//     <div>project-section</div>
+//   )
+// }

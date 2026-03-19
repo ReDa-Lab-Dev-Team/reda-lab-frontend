@@ -56,9 +56,7 @@ async function apiFetch<T>(endpoint: string, fallback: T): Promise<T> {
   }
 
   try {
-    const res = await fetch(`${API_BASE}${endpoint}`, {
-      headers: { "Content-Type": "application/json" },
-    });
+    const res = await fetch(`${API_BASE}${endpoint}`);
 
     if (!res.ok) {
       console.warn(
@@ -90,6 +88,20 @@ export const fetchResearchUnits = (): Promise<ResearchUnitData[]> =>
 /** Featured projects. */
 export const fetchProjects = (): Promise<ProjectData[]> =>
   apiFetch("/api/v1/projects", staticProjects);
+
+/** Public projects (from /public/projects). */
+export const fetchPublicProjects = async (): Promise<ProjectData[]> => {
+  const data = await apiFetch<unknown>("/public/projects", staticProjects);
+
+  if (!Array.isArray(data)) {
+    console.warn(
+      "[dataService] /public/projects -> unexpected payload shape. Falling back to static data.",
+    );
+    return staticProjects;
+  }
+
+  return data as ProjectData[];
+};
 
 /** Training / short-course catalogue. */
 export const fetchTrainings = (): Promise<TrainingData[]> =>

@@ -24,19 +24,35 @@ export interface ResearchUnitData {
 }
 
 // ── Projects ─────────────────────────────────────────────────────────────────
-export interface Project {
+export interface ProjectType {
   id: number;
   title: string;
   description?: string;
   image: string;
   tags: string[];
-  status: "On going" | "Done" | "Completed";
+  status: "On going" | "Done" | "On hold";
   members: Array<{
     name: string;
     avatar?: string;
   }>;
   additionalCount?: number;
   isFeatured?: boolean;
+}
+
+export type Project = ProjectType;
+
+export type ProjectApiStatus = "active" | "completed" | "upcoming" | "paused";
+
+export interface ProjectCategoryData {
+  id?: number;
+  name: string;
+  description?: string | null;
+}
+
+export interface ProjectContributorData {
+  id?: number;
+  name: string;
+  image_url?: string | null;
 }
 
 // ── Training services ────────────────────────────────────────────────────────
@@ -50,17 +66,17 @@ export interface TrainingData {
 }
 
 // ── Events ───────────────────────────────────────────────────────────────────
-export type EventType = "Bootcamp" | "Workshop" | "Conference" | "Seminar";
+export type EventKind = "Bootcamp" | "Workshop" | "Conference" | "Seminar";
 
-export interface EventData {
+export interface EventType {
   id: string;
   title: string;
-  type: EventType;
+  type: EventKind;
   date: string;
   attendees: number;
   imageUrl: string;
 }
-
+export type EventData = EventType;
 // ── Researchers ───────────────────────────────────────────────────────────────
 export interface ResearcherData {
   id: string;
@@ -96,23 +112,23 @@ export interface PillarData {
 // ── Project page ────────────────────────────────────────────────────────────────
 export interface Author {
   name: string;
-  initials: string;
+  initials?: string;
   avatarUrl?: string;
 }
 
 export interface ProjectTag {
   label: string;
-  variant?: "default" | "secondary" | "outline" | "destructive" | "success"; // Added custom success variant logic below
+  variant?: "default" | "secondary" | "outline" | "destructive" | "success";
 }
 
 export interface ProjectData {
   id: number;
   title: string;
-  description?: string;
-  imageColor?: string; // Simulating images with colored backgrounds for demo
-  imageUrl?: string;
-  tags: ProjectTag[];
-  authors: Author[];
-  isFeatured?: boolean;
-  logo?: string;
+  slug?: string;
+  description?: string | null;
+  image_url?: string | null;
+  is_featured?: boolean;
+  status?: ProjectApiStatus;
+  contributors?: ProjectContributorData[];
+  categories?: ProjectCategoryData[];
 }
