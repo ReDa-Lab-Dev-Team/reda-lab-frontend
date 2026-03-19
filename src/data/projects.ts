@@ -1,5 +1,5 @@
-import type { ProjectData } from "@/types";
-const projects: ProjectData[] = [
+import type { ProjectApiData } from "@/types";
+const projects: ProjectApiData[] = [
   {
     id: 1,
     title: "NLP API for Text Summarization",

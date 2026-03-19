@@ -112,7 +112,7 @@ export interface PillarData {
 // ── Project page ────────────────────────────────────────────────────────────────
 export interface Author {
   name: string;
-  initials?: string;
+  initials: string;
   avatarUrl?: string;
 }
 
@@ -121,7 +121,7 @@ export interface ProjectTag {
   variant?: "default" | "secondary" | "outline" | "destructive" | "success";
 }
 
-export interface ProjectData {
+export interface ProjectApiData {
   id: number;
   title: string;
   slug?: string;
@@ -131,4 +131,13 @@ export interface ProjectData {
   status?: ProjectApiStatus;
   contributors?: ProjectContributorData[];
   categories?: ProjectCategoryData[];
+}
+
+export interface ProjectData extends ProjectApiData {
+  // UI fields consumed by shared ProjectCard.
+  isFeatured: boolean;
+  imageColor: string;
+  logo: string;
+  tags: ProjectTag[];
+  authors: Author[];
 }

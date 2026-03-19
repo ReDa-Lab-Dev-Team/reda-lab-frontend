@@ -19,6 +19,7 @@
 import type {
   ValueData,
   ResearchUnitData,
+  ProjectApiData,
   ProjectData,
   TrainingData,
   EventData,
@@ -27,6 +28,7 @@ import type {
   AboutSlideData,
   PillarData,
 } from "@/types";
+import { mapProjectDataToProject } from "@/utils/mappers";
 
 // ── Static data imports (used in dev or as fallback) ─────────────────────────
 import staticValues from "@/data/values";
@@ -86,21 +88,48 @@ export const fetchResearchUnits = (): Promise<ResearchUnitData[]> =>
   apiFetch("/api/v1/research-units", staticResearchUnits);
 
 /** Featured projects. */
-export const fetchProjects = (): Promise<ProjectData[]> =>
+export const fetchProjects = (): Promise<ProjectApiData[]> =>
   apiFetch("/api/v1/projects", staticProjects);
 
 /** Public projects (from /public/projects). */
-export const fetchPublicProjects = async (): Promise<ProjectData[]> => {
+export const fetchPublicProjects = async (): Promise<ProjectApiData[]> => {
   const data = await apiFetch<unknown>("/public/projects", staticProjects);
 
-  if (!Array.isArray(data)) {
-    console.warn(
-      "[dataService] /public/projects -> unexpected payload shape. Falling back to static data.",
-    );
-    return staticProjects;
+  if (Array.isArray(data)) {
+    return data as ProjectApiData[];
   }
 
-  return data as ProjectData[];
+  if (data && typeof data === "object") {
+    const maybeData = (data as { data?: unknown }).data;
+    if (Array.isArray(maybeData)) {
+      return maybeData as ProjectApiData[];
+    }
+
+    const maybeItems = (data as { items?: unknown }).items;
+    if (Array.isArray(maybeItems)) {
+      return maybeItems as ProjectApiData[];
+    }
+  }
+
+  console.warn(
+    "[dataService] /public/projects -> unexpected payload shape. Falling back to static data.",
+  );
+  return staticProjects;
+};
+
+/**
+ * Public projects mapped to the card-consumable shape.
+ */
+export const fetchPublicProjectsForCards = async (): Promise<ProjectData[]> => {
+  const projects = await fetchPublicProjects();
+  if (!Array.isArray(projects)) {
+    console.warn(
+      "[dataService] fetchPublicProjectsForCards -> unexpected payload shape. Falling back to static data.",
+    );
+    return staticProjects.map(mapProjectDataToProject);
+  }
+
+  return projects.map(mapProjectDataToProject);
 };
 
 /** Training / short-course catalogue. */

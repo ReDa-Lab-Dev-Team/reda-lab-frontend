@@ -7,19 +7,17 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ProjectCard from "./project-card";
-import { fetchPublicProjects } from "@/services/dataService";
+import { fetchPublicProjectsForCards } from "@/services/dataService";
 import type { ProjectData } from "@/types";
-import { mapProjectDataToProject } from "@/utils/mappers";
 
 export default function UncommonProjectListSection() {
   const [projects, setProjects] = useState<ProjectData[]>([]);
-  const mappedProjects = projects.map(mapProjectDataToProject);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadProjects() {
       try {
-        const data = await fetchPublicProjects();
+        const data = await fetchPublicProjectsForCards();
         setProjects(data);
       } catch (err) {
         console.error("Failed to fetch public projects:", err);
@@ -31,14 +29,11 @@ export default function UncommonProjectListSection() {
   }, []);
 
   if (loading) return <div>Loading...</div>;
-  if (!mappedProjects.length) return <div>No projects found</div>;
+  if (!projects.length) return <div>No projects found</div>;
 
-  const featuredProject =
-    mappedProjects.find((p) => p.isFeatured) || mappedProjects[0];
-  const regularProjects = mappedProjects.filter(
-    (p) => p.id !== featuredProject.id,
-  );
-  const useDesktopCarousel = mappedProjects.length < 4;
+  const featuredProject = projects.find((p) => p.isFeatured) || projects[0];
+  const regularProjects = projects.filter((p) => p.id !== featuredProject.id);
+  const useDesktopCarousel = projects.length < 4;
 
   return (
     <section className="w-full bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -52,21 +47,13 @@ export default function UncommonProjectListSection() {
           <div className="hidden md:block">
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
               <CarouselContent className="-ml-2 md:-ml-4">
-                {mappedProjects.map((project) => (
+                {projects.map((project) => (
                   <CarouselItem
                     key={project.id}
                     className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
                   >
                     <div className="h-full">
-                      <ProjectCard
-                        project={project}
-                        variant={
-                          project.id === featuredProject.id
-                            ? "featured"
-                            : "default"
-                        }
-                        uniformHeight
-                      />
+                      <ProjectCard project={project} />
                     </div>
                   </CarouselItem>
                 ))}
@@ -84,7 +71,11 @@ export default function UncommonProjectListSection() {
             {/* Secondary Cards */}
             <div className="col-span-7 grid grid-cols-2 gap-6">
               {regularProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  variant="default"
+                />
               ))}
             </div>
           </div>
@@ -94,17 +85,13 @@ export default function UncommonProjectListSection() {
         <div className="md:hidden">
           <Carousel opts={{ align: "start", loop: true }} className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
-              {mappedProjects.map((project) => (
+              {projects.map((project) => (
                 <CarouselItem
                   key={project.id}
                   className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
                 >
                   <div className="h-full">
-                    <ProjectCard
-                      project={project}
-                      variant="default"
-                      uniformHeight
-                    />
+                    <ProjectCard project={project} />
                   </div>
                 </CarouselItem>
               ))}
