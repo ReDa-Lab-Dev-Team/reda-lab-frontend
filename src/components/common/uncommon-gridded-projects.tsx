@@ -12,6 +12,7 @@ import { fetchProjects } from "@/services/project.service";
 import { mapProject } from "@/utils/mappers";
 import type { Project } from "@/types/project";
 import ProjectCard from "./project-card";
+import GeneralCarousel from "./general-carousel";
 
 // project card filter
 import { countWords } from "@/utils/string";
@@ -104,22 +105,11 @@ export default function UncommonProjectListSection() {
 
         {/* Mobile */}
         <div className="md:hidden">
-          <Carousel opts={{ align: "start", loop: true }} className="w-full">
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {projects.map((project) => (
-                <CarouselItem
-                  key={project.id}
-                  className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
-                >
-                  <div className="h-full">
-                    <ProjectCard project={project} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-2" />
-            <CarouselNext className="right-2" />
-          </Carousel>
+          <GeneralCarousel
+            items={projects}
+            renderItem={(project) => <ProjectCard project={project} />}
+            itemKey={(project) => project.id}
+          />
         </div>
       </div>
     </section>
