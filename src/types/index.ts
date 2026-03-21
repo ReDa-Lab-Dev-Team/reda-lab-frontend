@@ -23,26 +23,6 @@ export interface ResearchUnitData {
   imageUrl?: string;
 }
 
-// ── Projects ─────────────────────────────────────────────────────────────────
-export interface ProjectType {
-  id: number;
-  title: string;
-  description?: string;
-  image: string;
-  tags: string[];
-  status: "On going" | "Done" | "On hold";
-  members: Array<{
-    name: string;
-    avatar?: string;
-  }>;
-  additionalCount?: number;
-  isFeatured?: boolean;
-}
-
-export type Project = ProjectType;
-
-export type ProjectApiStatus = "active" | "completed" | "upcoming" | "paused";
-
 export interface ProjectCategoryData {
   id?: number;
   name: string;
