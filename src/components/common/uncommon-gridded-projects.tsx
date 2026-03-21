@@ -10,8 +10,11 @@ import {
 // fetching and applying
 import { fetchProjects } from "@/services/project.service";
 import { mapProject } from "@/utils/mappers";
-import type { Project } from "@/types";
+import type { Project } from "@/types/project";
 import ProjectCard from "./project-card";
+
+// project card filter
+import { countWords } from "@/utils/string";
 
 export default function UncommonProjectListSection() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -37,9 +40,18 @@ export default function UncommonProjectListSection() {
   if (loading) return <div>Loading...</div>;
   if (!projects.length) return <div>No projects found</div>;
 
-  const featuredProject = projects.find((p) => p.isFeatured) || projects[0];
-  const regularProjects = projects.filter((p) => p.id !== featuredProject.id);
-  const useDesktopCarousel = projects.length < 4;
+  // uncommon gridded logic
+  const qualifyingFeaturedProject = projects.find(
+    (p) => p.isFeatured && countWords(p.description ?? "") >= 70,
+  );
+
+  // keep only non-featured cards
+  const regularProjects = qualifyingFeaturedProject
+    ? projects.filter((p) => p.id !== qualifyingFeaturedProject.id).slice(0, 4)
+    : [];
+
+  const shouldUseUncommonGrid =
+    Boolean(qualifyingFeaturedProject) && regularProjects.length === 4;
 
   return (
     <section className="w-full bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -49,7 +61,27 @@ export default function UncommonProjectListSection() {
         </h2>
 
         {/* Desktop */}
-        {useDesktopCarousel ? (
+        {shouldUseUncommonGrid ? (
+          <div className="hidden md:grid grid-cols-12 gap-6">
+            <div className="col-span-5">
+              <ProjectCard
+                project={qualifyingFeaturedProject!}
+                variant="featured"
+              />
+            </div>
+
+            {/* Secondary Cards */}
+            <div className="col-span-7 grid grid-cols-2 gap-6">
+              {regularProjects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  variant="default"
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
           <div className="hidden md:block">
             <Carousel opts={{ align: "start", loop: true }} className="w-full">
               <CarouselContent className="-ml-2 md:-ml-4">
@@ -67,23 +99,6 @@ export default function UncommonProjectListSection() {
               <CarouselPrevious className="left-2" />
               <CarouselNext className="right-2" />
             </Carousel>
-          </div>
-        ) : (
-          <div className="hidden md:grid grid-cols-12 gap-6">
-            <div className="col-span-5">
-              <ProjectCard project={featuredProject} variant="featured" />
-            </div>
-
-            {/* Secondary Cards */}
-            <div className="col-span-7 grid grid-cols-2 gap-6">
-              {regularProjects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  variant="default"
-                />
-              ))}
-            </div>
           </div>
         )}
 
