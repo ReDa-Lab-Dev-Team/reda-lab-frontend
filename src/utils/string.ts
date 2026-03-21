@@ -90,3 +90,6 @@ export function truncateByWords(
   // Add ellipsis
   return truncatedWords + ellipsis;
 }
+
+// --- Word Counter ---
+export const countWords = (s: string) => s.trim().split(/\s+/).length;

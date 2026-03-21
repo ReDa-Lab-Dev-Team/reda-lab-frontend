@@ -1,79 +1,36 @@
 import { ArrowUpRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { truncateByWords } from "@/utils/string";
-import type { Project, ProjectData } from "@/types";
+import type { Project } from "@/types/project";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 
-interface ProjectCardProps {
-  project: Project | ProjectData;
-  variant?: "featured" | "default";
+interface ProjectProps {
+  project: Pick<
+    Project,
+    | "title"
+    | "description"
+    | "isFeatured"
+    | "image"
+    | "tags"
+    | "status"
+    | "members"
+    | "additionalCount"
+  >;
+  variant?: "default" | "featured";
   uniformHeight?: boolean;
 }
 
-function normalizeStatus(status?: string): "On going" | "Done" | "On hold" {
-  if (status === "Done" || status === "completed") return "Done";
-  if (status === "On hold" || status === "paused") return "On hold";
-  return "On going";
-}
-
-function normalizeTags(project: Project | ProjectData): string[] {
-  if (!Array.isArray(project.tags)) {
-    return [];
-  }
-
-  return project.tags
-    .map((tag) => {
-      if (typeof tag === "string") return tag;
-      if (tag && typeof tag === "object" && "label" in tag) {
-        return typeof tag.label === "string" ? tag.label : "";
-      }
-      return "";
-    })
-    .filter((tag): tag is string => Boolean(tag));
-}
-
-function normalizeMembers(project: Project | ProjectData): Array<{
-  name: string;
-  avatar?: string;
-}> {
-  if ("members" in project && Array.isArray(project.members)) {
-    return project.members.map((member) => ({
-      name: member?.name || "Unknown",
-      avatar: member?.avatar,
-    }));
-  }
-
-  if ("authors" in project && Array.isArray(project.authors)) {
-    return project.authors.map((author) => ({
-      name: author?.name || "Unknown",
-      avatar: author?.avatarUrl,
-    }));
-  }
-
-  if ("contributors" in project && Array.isArray(project.contributors)) {
-    return project.contributors.map((contributor) => ({
-      name: contributor?.name?.trim() || "Unknown",
-      avatar: contributor?.image_url ?? undefined,
-    }));
-  }
-
-  return [];
-}
-
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard: React.FC<ProjectProps> = ({
   project,
   variant = "default",
   uniformHeight = false,
 }) => {
-  const isFeatured = variant === "featured";
-  const tags = normalizeTags(project);
-  const members = normalizeMembers(project);
-  const statusLabel = normalizeStatus(
-    "status" in project ? String(project.status ?? "") : undefined,
-  );
-  const additionalCount =
-    "additionalCount" in project ? project.additionalCount : undefined;
+  const isFeatured = project.isFeatured || variant === "featured";
+  const statusLabel = project.status || "On going";
+  const tags = project.tags || [];
+  // const additionalCount =
+  //   "additionalCount" in project ? project.additionalCount : undefined;
   const title = project.title || "Untitled Project";
   const nonStatusTags = tags.filter((tag) => tag !== statusLabel);
   const visibleTags = isFeatured ? nonStatusTags : nonStatusTags.slice(0, 1);
@@ -91,22 +48,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             uniformHeight ? "h-48" : isFeatured ? "h-64" : "h-32"
           }`}
         >
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-purple-500 to-indigo-600"
-            style={{
-              background:
-                isFeatured && !uniformHeight
-                  ? "linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%)"
-                  : "linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)",
-            }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={title}
+              className="object-cover w-full h-full"
+            />
+          ) : (
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center"
+              style={{
+                background:
+                  isFeatured && !uniformHeight
+                    ? "linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%)"
+                    : "linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)",
+              }}
+            >
               <span className="text-white/50 text-6xl font-bold">
                 {title.charAt(0)}
               </span>
             </div>
-          </div>
-
+          )}
           {isFeatured && !uniformHeight && (
             <button className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
               <ArrowUpRight className="w-5 h-5 text-gray-700" />
@@ -132,7 +94,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
           {variant === "featured" && project.description && !uniformHeight && (
             <p className="text-gray-600 text mb-4 line-clamp-6">
-              {truncateByWords(project.description, 55, "...") }
+              {truncateByWords(project.description, 55, "...")}
             </p>
           )}
 
@@ -162,10 +124,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {/* Members - Push to bottom */}
           <div className="flex items-center gap-2 mt-auto">
             <div className="flex -space-x-2">
-              {members.map((member, index) => (
-                <Avatar key={index} className="w-8 h-8 border-2 border-white">
-                  <AvatarImage src={member.avatar} alt={member.name} />
-                  <AvatarFallback className="bg-gradient-to-br from-purple-400 to-indigo-500 text-white text-xs">
+              {project.members.map((member, index) => (
+                <Avatar key={index} className="w-8 h-8 border-2 border-white rounded-full">
+                  <AvatarImage className="rounded-full"
+                    src={"/profiles/man-avatar-placeholder.jpeg"}
+                    alt={member.name}
+                  />
+                  <AvatarFallback className="bg-gradient-to-br from-purple-400 to-indigo-500 text-white text-xs rounded-sm">
                     {member.name
                       .split(" ")
                       .map((n) => n[0])
@@ -175,8 +140,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               ))}
             </div>
             <span className="text-sm text-gray-600">
-              {members.map((m) => m.name).join(", ")}
-              {additionalCount && ` and ${additionalCount} others`}
+              {project.members.map((m) => m.name).join(", ")}
+              {` and others`}
             </span>
           </div>
         </div>

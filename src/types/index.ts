@@ -108,36 +108,3 @@ export interface PillarData {
   title: string;
   textBullets: string[];
 }
-
-// ── Project page ────────────────────────────────────────────────────────────────
-export interface Author {
-  name: string;
-  initials: string;
-  avatarUrl?: string;
-}
-
-export interface ProjectTag {
-  label: string;
-  variant?: "default" | "secondary" | "outline" | "destructive" | "success";
-}
-
-export interface ProjectApiData {
-  id: number;
-  title: string;
-  slug?: string;
-  description?: string | null;
-  image_url?: string | null;
-  is_featured?: boolean;
-  status?: ProjectApiStatus;
-  contributors?: ProjectContributorData[];
-  categories?: ProjectCategoryData[];
-}
-
-export interface ProjectData extends ProjectApiData {
-  // UI fields consumed by shared ProjectCard.
-  isFeatured: boolean;
-  imageColor: string;
-  logo: string;
-  tags: ProjectTag[];
-  authors: Author[];
-}

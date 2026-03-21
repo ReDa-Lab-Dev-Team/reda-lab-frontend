@@ -6,26 +6,32 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
+// fetching and applying
+import { fetchProjects } from "@/services/project.service";
+import { mapProject } from "@/utils/mappers";
+import type { Project } from "@/types";
 import ProjectCard from "./project-card";
-import { fetchPublicProjectsForCards } from "@/services/dataService";
-import type { ProjectData } from "@/types";
 
 export default function UncommonProjectListSection() {
-  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function loadProjects() {
+    async function load() {
       try {
-        const data = await fetchPublicProjectsForCards();
-        setProjects(data);
-      } catch (err) {
-        console.error("Failed to fetch public projects:", err);
-      } finally {
+        const rawProjects = await fetchProjects();
+        const mappedProjects = rawProjects.map(mapProject);
+        setProjects(mappedProjects);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+      {
         setLoading(false);
       }
     }
-    loadProjects();
+
+    load();
   }, []);
 
   if (loading) return <div>Loading...</div>;
