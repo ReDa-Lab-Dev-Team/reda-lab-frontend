@@ -70,7 +70,6 @@ export default function PublicationTitle() {
                   fill="white"
                   stroke="#cbd5e1"
                   strokeWidth="2"
-                  shadow="lg"
                 />
 
                 {/* Header section with circle */}

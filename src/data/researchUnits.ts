@@ -2,7 +2,7 @@ import type { ResearchUnitData } from "@/types";
 
 const researchUnits: ResearchUnitData[] = [
   {
-    id: "unit-1",
+    id: 1,
     title: "LLM Application & Research Club",
     description:
       "Explore cutting-edge technologies in large language models (LLMs) and apply them to real-world challenges, from AI assistants to Khmer NLP and model optimization.",
@@ -12,7 +12,7 @@ const researchUnits: ResearchUnitData[] = [
     imageUrl: "/meymey_siv_aquared.png",
   },
   {
-    id: "unit-2",
+    id: 2,
     title: "Data Science & Analytics Unit",
     description:
       "Applying statistical modelling, machine learning, and data visualisation to solve complex business and societal problems across multiple sectors.",
@@ -22,7 +22,7 @@ const researchUnits: ResearchUnitData[] = [
     imageUrl: "/b_sl_o.jpg",
   },
   {
-    id: "unit-3",
+    id: 3,
     title: "Computer Vision & Imaging Lab",
     description:
       "Research in image recognition, object detection, and visual AI solutions tailored for real-world Cambodian environments.",

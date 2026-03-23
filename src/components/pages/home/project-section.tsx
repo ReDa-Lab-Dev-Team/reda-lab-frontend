@@ -5,7 +5,7 @@
 // import { fetchProjects } from "@/services/dataService";
 // import type { ProjectData } from "@/types";
 
-import ProjectCard from "@/components/common/project-card";
+// import ProjectCard from "@/components/common/project-card";
 
 // const toCardProps = (d: ProjectData): ProjectCardProps => ({
 //   title: d.title,

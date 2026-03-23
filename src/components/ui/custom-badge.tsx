@@ -1,5 +1,9 @@
-import type { ProjectTag } from "@/types";
 import { Badge } from "lucide-react";
+
+interface ProjectTag {
+  label: string;
+  variant?: "default" | "secondary" | "outline" | "destructive" | "success";
+}
 
 export default function CustomBadge({ label, variant }: ProjectTag) {
   // Mapping variants to approximate colors from image
@@ -14,9 +18,5 @@ export default function CustomBadge({ label, variant }: ProjectTag) {
     className = "bg-gray-100 text-gray-800 hover:bg-gray-100 border-gray-200";
   }
 
-  return (
-    <Badge className={`${className} font-medium border`}>
-      {label}
-    </Badge>
-  );
+  return <Badge className={`${className} font-medium border`}>{label}</Badge>;
 }
