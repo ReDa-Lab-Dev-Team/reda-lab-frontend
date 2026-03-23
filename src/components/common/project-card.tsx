@@ -29,8 +29,6 @@ const ProjectCard: React.FC<ProjectProps> = ({
   const isFeatured = project.isFeatured || variant === "featured";
   const statusLabel = project.status || "On going";
   const tags = project.tags || [];
-  // const additionalCount =
-  //   "additionalCount" in project ? project.additionalCount : undefined;
   const title = project.title || "Untitled Project";
   const nonStatusTags = tags.filter((tag) => tag !== statusLabel);
   const visibleTags = isFeatured ? nonStatusTags : nonStatusTags.slice(0, 1);
@@ -87,7 +85,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
           >
             {truncateByWords(
               title,
-              isFeatured && !uniformHeight ? 4 : 5,
+              isFeatured && !uniformHeight ? 3 : 4,
               "...",
             )}
           </h3>
@@ -100,7 +98,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-4">
-            {visibleTags.map((tag) => (
+            {visibleTags.slice(0, 1).map((tag) => (
               <Badge
                 key={tag}
                 variant="outline"
@@ -125,8 +123,12 @@ const ProjectCard: React.FC<ProjectProps> = ({
           <div className="flex items-center gap-2 mt-auto">
             <div className="flex -space-x-2">
               {project.members.map((member, index) => (
-                <Avatar key={index} className="w-8 h-8 border-2 border-white rounded-full">
-                  <AvatarImage className="rounded-full"
+                <Avatar
+                  key={index}
+                  className="w-8 h-8 border-2 border-white rounded-full"
+                >
+                  <AvatarImage
+                    className="rounded-full"
                     src={"/profiles/man-avatar-placeholder.jpeg"}
                     alt={member.name}
                   />
