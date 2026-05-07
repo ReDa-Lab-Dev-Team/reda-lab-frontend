@@ -31,6 +31,26 @@ const researchUnits: ResearchUnitData[] = [
     leaders: ["Leang Sothea", "Hy Chanraksmey"],
     imageUrl: "/project-image-01.png",
   },
+  {
+    id: 4,
+    title: "Robotics & IoT Lab",
+    description:
+      "Developing smart, connected systems and robotic solutions for industrial and consumer applications.",
+    coreTheme:
+      "Internet of Things, Embedded Systems, Automation, Robotics.",
+    leaders: ["Seng Leap", "Kong Sokchea"],
+    imageUrl: "/project-image-02.jpg",
+  },
+  {
+    id: 5,
+    title: "Software Engineering Unit",
+    description:
+      "Researching scalable software architectures, modern development methodologies, and reliable systems.",
+    coreTheme:
+      "System Architecture, DevOps, Cloud Computing, Software Patterns.",
+    leaders: ["Meas Panha", "Chea Vanna"],
+    imageUrl: "/project-image-03.jpg",
+  }
 ];
 
 export default researchUnits;
