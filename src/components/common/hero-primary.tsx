@@ -22,7 +22,7 @@ const Hero = () => {
         // className="absolute inset-0 z-0"
         aria-hidden="true"
       ></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl">
           <h2 className="text-blue-300 font-medium mb-2 tracking-wide uppercase text-sm">
             Welcome to

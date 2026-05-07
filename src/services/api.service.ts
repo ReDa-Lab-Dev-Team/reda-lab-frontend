@@ -9,12 +9,17 @@ export default async function apiFetch<T>(
     return fallback;
   }
 
+  // Normalize base and endpoint to avoid double slashes
+  const baseUrl = API_BASE.replace(/\/$/, "");
+  const cleanEndpoint = endpoint.replace(/^\//, "");
+  const url = `${baseUrl}/${cleanEndpoint}`;
+
   try {
-    const res = await fetch(`${API_BASE}${endpoint}`);
+    const res = await fetch(url);
 
     if (!res.ok) {
       console.warn(
-        `[dataService] ${endpoint} -> HTTP ${res.status}. Falling back to static data.`,
+        `[apiService] ${endpoint} -> HTTP ${res.status}. Falling back to static data.`,
       );
       return fallback;
     }
@@ -22,7 +27,7 @@ export default async function apiFetch<T>(
     return (await res.json()) as T;
   } catch (err) {
     console.warn(
-      `[dataService] ${endpoint} -> fetch failed. Falling back to static data.`,
+      `[apiService] ${endpoint} -> fetch failed. Falling back to static data.`,
       err,
     );
     return fallback;

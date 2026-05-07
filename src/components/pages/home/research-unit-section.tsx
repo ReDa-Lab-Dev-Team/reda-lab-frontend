@@ -38,7 +38,7 @@ const ResearchUnitSection = () => {
 
   return (
     <section id="research" className="py-20 bg-primary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <PrimarySectionHeader
           title="Our Research Units"
           className="text-white"
