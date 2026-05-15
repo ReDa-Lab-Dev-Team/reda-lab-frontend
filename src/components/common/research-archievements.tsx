@@ -95,7 +95,7 @@ const useCountUp = (
 };
 
 const StatCard: React.FC<{ stat: AchievementStat; index: number }> = ({ stat, index }) => {
-  const [count, hasStarted] = useCountUp(stat.value, stat.duration);
+  const [count] = useCountUp(stat.value, stat.duration);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
