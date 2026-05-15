@@ -49,8 +49,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
-      {/* Optional Side Decor or Icons could go here if needed to mimic the bottom-right icons in the image */}
     </div>
   );
 };

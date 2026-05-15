@@ -7,7 +7,7 @@ import { ValueCard, type ValueCardProps } from "./value-card";
 export type ValueIconName = "Search" | "Lightbulb" | "Users" | "Target";
 export interface ValueData {
   id: number;
-  iconName: ValueIconName;
+  iconName: "Search" | "Lightbulb" | "Users" | "Target";
   title: string;
   desc: string;
 }
