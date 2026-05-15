@@ -1,7 +1,7 @@
 import HeroSecondary from "@/components/common/hero-secondary";
-import ScatteredCirclesLayout from "@/components/common/scattered-circles-layout";
-import researchUnits from "@/data/researchUnits";
 import ResearchUnitsCarousel from "./research-units-carousel";
+import ResearchAchievements from "@/components/common/research-archievements";
+import InvitationSection from "@/components/common/invitation-section";
 
 export default function Research() {
   return (
@@ -11,15 +11,9 @@ export default function Research() {
         mainTitle="Research Unit"
         bottomText="Building a better future through research and innovation"
       />
-      <section className="w-full">
-        <ScatteredCirclesLayout
-          title="Our holistic approach"
-          subtitle="RESEARCH UNITS"
-          items={researchUnits}
-          showDiscoverButton={false}
-        />
-      </section>
       <ResearchUnitsCarousel />
+      <ResearchAchievements />
+      <InvitationSection />
     </>
   );
 }

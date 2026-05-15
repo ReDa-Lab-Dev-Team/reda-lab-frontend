@@ -252,9 +252,14 @@ const ResearchUnitsCarousel: React.FC = () => {
             {/* CTA Button */}
             <div className="pt-4">
               <Button 
-                className="bg-[#8b1a2a] hover:bg-[#6b1420] text-white rounded-full px-8 py-6 text-sm sm:text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg"
+                className="bg-[#8b1a2a] hover:bg-[#6b1420] text-white rounded-full px-8 py-6 text-sm sm:text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg mr-1"
               >
                 Learn More About This Unit
+              </Button>
+              <Button 
+                className="bg-[#8b1a2a] hover:bg-[#6b1420] text-white rounded-full px-8 py-6 text-sm sm:text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-lg"
+              >
+                Browse All Research Units
               </Button>
             </div>
           </div>
