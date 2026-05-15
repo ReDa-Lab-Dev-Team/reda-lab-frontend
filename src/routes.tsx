@@ -6,6 +6,7 @@ import ResearchPage from "./pages/research-page";
 import NotFoundPage from "./pages/not-found-page";
 import ProjectPage from "./pages/projects/projects-page";
 import PublicationPage from "./pages/publications/publications-page";
+import ContactPage from "./pages/contact-page";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ export const router = createBrowserRouter([
         path: "publication",
         element: <PublicationPage />,
       },
+      {
+        path: "contact",
+        element: <ContactPage />,
+      },
+
       // --- Not Found Page ---
       {
         path: "*",

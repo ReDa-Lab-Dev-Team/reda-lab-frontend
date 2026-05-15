@@ -5,6 +5,7 @@ import ResearchUnitSection from "./research-unit-section";
 import InvitationSection from "@/components/common/invitation-section";
 import TrainingServices from "./training-service-section";
 import EventsSection from "./event-section";
+import ContactSection from "@/components/common/contact-section";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <TrainingServices />
       <EventsSection />
       <InvitationSection />
+      <ContactSection />
     </>
   );
 };
