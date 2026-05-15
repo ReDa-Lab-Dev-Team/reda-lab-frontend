@@ -3,16 +3,6 @@
 // These mirror the shapes a REST API would return.
 // ---------------------------------------------------------------------------
 
-// ── Values ──────────────────────────────────────────────────────────────────
-export type ValueIconName = "Search" | "Lightbulb" | "Users" | "Target";
-
-export interface ValueData {
-  id: string;
-  iconName: ValueIconName;
-  title: string;
-  desc: string;
-}
-
 // ── Research Units ───────────────────────────────────────────────────────────
 export interface ResearchUnitData {
   id: number;

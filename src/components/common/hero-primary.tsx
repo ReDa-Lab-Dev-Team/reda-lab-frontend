@@ -1,11 +1,11 @@
 const Hero = () => {
   return (
-    <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen">
-      {/* Background Image with Gradient Overlay */}
+    <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+      {/* Background Image with Dark Overlay to match the deep blue of the image */}
       <div
         className="absolute inset-0 w-full h-full z-0"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.85),  rgba(0, 89, 149, 0.9)), url('/homepage-background.png')`,
+          backgroundImage: `linear-gradient(to right, rgba(4, 27, 51, 0.95), rgba(7, 45, 82, 0.85)), url('/homepage-background.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -13,40 +13,37 @@ const Hero = () => {
         aria-hidden="true"
       ></div>
 
-      {/* Abstract Background Shapes */}
-      {/* <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-800/20 -skew-x-12 translate-x-20 pointer-events-none z-10"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none z-10"></div> */}
-
-      <div
-        className="absolute inset-0 bg-black bg-opacity-30 z-0"
-        // className="absolute inset-0 z-0"
-        aria-hidden="true"
-      ></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl">
-          <h2 className="text-blue-300 font-medium mb-2 tracking-wide uppercase text-sm">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto md:ml-[10%]">
+          {/* Small Gold Heading */}
+          <h2 className="text-[#c89b51] font-medium mb-6 tracking-[0.2em] uppercase text-xs sm:text-sm">
             Welcome to
           </h2>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          
+          {/* Large Typography with Inline Gold Underlines */}
+          <h1 
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-snug sm:leading-snug md:leading-snug lg:leading-[1.3] font-normal"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+           <span className="inline-block border-b-[2px] border-[#c89b51] pb-1 leading-none mx-1 text-white/95">
             ReDA Lab
+           </span>{" "}
+           (Research and Data Analytics Laboratory) is a division of the 
+           <span className="inline-block border-b-[2px] border-[#c89b51] pb-1 leading-none mx-1 text-white/95">
+            Applied Mathematics and Statistics
+           </span>{" "}
+           at the
+           <span className="inline-block border-b-[2px] border-[#c89b51] pb-1 leading-none mx-1 text-white/95">
+             Institute of Technology of Cambodia.
+           </span>{" "}
+           It serves as a collaborative community and innovation hub for research and data analytics.
           </h1>
-          <p className="text-xl text-blue-100 mb-4 font-light">
-            A Research and Data Analytics Laboratory of <br />
-            <span className="font-semibold text-white">
-              Department of Applied Mathematics and Statistics
-            </span>
-          </p>
-          <p className="text-blue-200 mb-8 max-w-2xl leading-relaxed">
-            in Institute of Technology of Cambodia. A community of thinkers and
-            doers — driving Research, sparking Innovation, strengthening Social
-            bonds, and creating lasting Impact.
-          </p>
 
-          <div className="flex flex-wrap gap-4">
-            <button className="bg-white text-[#0f3a5d] px-6 py-3 rounded-md font-semibold hover:bg-blue-50 transition flex items-center gap-2">
+          <div className="flex flex-wrap gap-6 mt-16">
+            <button className="bg-[#c89b51] text-[#041b33] px-8 py-3 rounded-full font-semibold hover:bg-white transition flex items-center gap-2 text-sm tracking-wide">
               View Research Units
             </button>
-            <button className="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white/10 transition flex items-center gap-2">
+            <button className="border border-white/30 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition flex items-center gap-2 text-sm tracking-wide">
               Explore Training Service
             </button>
           </div>

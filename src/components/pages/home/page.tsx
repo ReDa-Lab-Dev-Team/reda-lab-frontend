@@ -4,6 +4,7 @@ import ResearchUnitSection from "./research-unit-section";
 // import FeaturedProjects from "./project-section";
 import TrainingServices from "./training-service-section";
 import EventsSection from "./event-section";
+import ContactSection from "@/components/common/contact-section";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       {/* <FeaturedProjects /> */}
       <TrainingServices />
       <EventsSection />
+      <ContactSection />
     </>
   );
 };

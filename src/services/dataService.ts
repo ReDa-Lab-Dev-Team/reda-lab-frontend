@@ -17,7 +17,7 @@
  */
 
 import type {
-  ValueData,
+  // ValueData,
   ResearchUnitData,
   TrainingData,
   EventData,
@@ -28,7 +28,7 @@ import type {
 } from "@/types";
 
 // ── Static data imports (used in dev or as fallback) ─────────────────────────
-import staticValues from "@/data/values";
+// import staticValues from "@/data/values";
 import staticResearchUnits from "@/data/researchUnits";
 import staticTrainings from "@/data/trainings";
 import staticEvents from "@/data/events";
@@ -76,8 +76,8 @@ async function apiFetch<T>(endpoint: string, fallback: T): Promise<T> {
 // ── Public API ────────────────────────────────────────────────────────────────
 
 /** Core values shown in the home hero section. */
-export const fetchValues = (): Promise<ValueData[]> =>
-  apiFetch("/api/v1/values", staticValues);
+// export const fetchValues = (): Promise<ValueData[]> =>
+//   apiFetch("/api/v1/values", staticValues);
 
 /** Research unit cards. */
 export const fetchResearchUnits = (): Promise<ResearchUnitData[]> =>
