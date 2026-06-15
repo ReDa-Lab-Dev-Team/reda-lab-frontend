@@ -11,7 +11,7 @@ const Contact = () => {
       />
 
       <section className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="space-y-10">
           <ContactInfo />
           <ContactMap />
         </div>

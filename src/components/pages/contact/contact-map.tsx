@@ -1,10 +1,9 @@
 const ContactMap = () => {
   return (
-    <div className="w-full h-[450px] rounded-xl overflow-hidden shadow-lg">
+    <div className="w-full h-[700px]">
       <iframe
         title="Location Map"
-        width="100%"
-        height="100%"
+        className="w-full h-full"
         style={{ border: 0 }}
         loading="lazy"
         allowFullScreen
