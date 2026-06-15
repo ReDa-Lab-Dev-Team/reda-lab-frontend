@@ -1,14 +1,17 @@
-const ContactMap=() =>{
+const ContactMap = () => {
   return (
-    <div className="w-full h-[350px] md:h-[450px] overflow-hidden rounded-xl shadow-lg">
+    <div className="w-full h-[450px] rounded-xl overflow-hidden shadow-lg">
       <iframe
         title="Location Map"
-        src="https://maps.app.goo.gl/xUJh7fcuDspibykc6"
-        className="w-full h-full border-0"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
         loading="lazy"
         allowFullScreen
+        src="https://www.google.com/maps?q=Department%20of%20Applied%20Mathematics%20and%20Statistics%20Phnom%20Penh&output=embed"
       />
     </div>
   );
 };
+
 export default ContactMap;
