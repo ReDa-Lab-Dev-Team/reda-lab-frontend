@@ -46,11 +46,16 @@ const Footer = () => {
             <ul className="space-y-4 text-blue-200 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-yellow-400 shrink-0" />
-                <span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Institute+of+Technology+of+Cambodia+Department+of+Applied+Mathematics+and+Statistics"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
                   Institute of Technology of Cambodia,
                   <br />
                   Department of Applied Mathematics and Statistics
-                </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -61,7 +66,9 @@ const Footer = () => {
             <ul className="space-y-4 text-blue-200 text-sm">
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-yellow-400 shrink-0" />
-                <span>01101213</span>
+                <a href="tel:01101213" className="hover:underline">
+                  01101213
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-yellow-400 shrink-0" />
@@ -69,7 +76,9 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-yellow-400 shrink-0" />
-                <span>ReDa@itc.edu.kh</span>
+                <a href="mailto:ReDa@itc.edu.kh" className="hover:underline">
+                  ReDa@itc.edu.kh
+                </a>
               </li>
             </ul>
           </div>
