@@ -3,6 +3,7 @@ import MainLayout from "./layouts/main-layout";
 import HomePage from "./pages/home-page";
 import AboutPage from "./pages/about-page";
 import ResearchPage from "./pages/research-page";
+import CommunityPage from "./pages/community-page";
 import NotFoundPage from "./pages/not-found-page";
 import ProjectPage from "./pages/projects/projects-page";
 import PublicationPage from "./pages/publications/publications-page";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactPage />,
+      },
+      {
+        path: "community",
+        element: <CommunityPage />,
       },
 
       // --- Not Found Page ---
