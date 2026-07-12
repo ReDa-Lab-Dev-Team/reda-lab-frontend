@@ -1,0 +1,22 @@
+<!-- Replace lines 7-12 in Project.html with this -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    brandDark: '#0a2240',  /* Deep Blue */
+                    brandGold: '#cc9933',  /* Gold Accent */
+                    brandLight: '#f8fafc'  /* Clean Light Gray */
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .glass { 
+        background: rgba(255, 255, 255, 0.05); 
+        backdrop-filter: blur(10px); 
+        border: 1px solid rgba(255, 255, 255, 0.1); 
+    }
+</style>
