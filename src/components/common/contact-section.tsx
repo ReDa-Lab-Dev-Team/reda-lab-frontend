@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Plus, Twitter, Facebook, Instagram, Youtube, MoreHorizontal } from 'lucide-react';
+import { Phone, Plus, Twitter, Facebook, Instagram, Youtube, MoreHorizontal } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   const quickLinks = [
@@ -76,36 +76,21 @@ const ContactSection: React.FC = () => {
           </div>
 
           {/* Center Column - Map */}
-          <div className="flex justify-center order-1 md:order-2">
-            <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-square bg-gray-100 rounded-sm overflow-hidden shadow-lg">
-              {/* Map Placeholder - Replace with actual map component or image */}
-              <div className="absolute inset-0 bg-gray-200">
-                <img
-                  src="https://api.mapbox.com/styles/v1/mapbox/light-v11/static/-3.05,51.52,10,0/400x400?access_token=YOUR_TOKEN"
-                  alt="Location Map"
-                  className="w-full h-full object-cover opacity-90"
-                  onError={(e) => {
-                    // Fallback if map image fails
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
-                />
-                {/* Map Pin Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
-                    <MapPin className="w-10 h-10 text-[#8b1a2a] fill-[#8b1a2a]" strokeWidth={1.5} />
-                  </div>
-                </div>
-                {/* Additional location pins */}
-                <div className="absolute top-[35%] right-[25%]">
-                  <MapPin className="w-5 h-5 text-[#c4a35a] fill-[#c4a35a]" strokeWidth={1.5} />
-                </div>
-                <div className="absolute bottom-[30%] left-[30%]">
-                  <MapPin className="w-5 h-5 text-[#c4a35a] fill-[#c4a35a]" strokeWidth={1.5} />
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Center Column - Map */}
+<div className="flex justify-center order-1 md:order-2">
+  <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-lg bg-gray-100">
+
+    <iframe
+      title="Google Map Location"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46497.18869700577!2d104.89574171072076!3d11.573682094324232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095135c2ad598d%3A0xb2d48d6f11032091!2sDepartment%20of%20Applied%20Mathematics%20and%20Statistics%20(AMS)!5e1!3m2!1sen!2skh!4v1781492365955!5m2!1sen!2skh"
+      className="w-full h-full border-0"
+      loading="lazy"
+      allowFullScreen
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+
+  </div>
+</div>
 
           {/* Right Column - Quick Links */}
           <div className="flex flex-col items-center md:items-start space-y-4 order-3">

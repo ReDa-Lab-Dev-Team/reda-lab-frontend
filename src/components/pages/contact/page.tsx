@@ -1,17 +1,22 @@
-import ContactSection from "@/components/common/contact-section";
 import HeroSecondary from "@/components/common/hero-secondary";
-
+import ContactInfo from "./contact-info";
+import ContactMap from "./contact-map";
 const Contact = () => {
   return (
     <>
       <HeroSecondary
         topText="Contact Us"
         mainTitle="Get in Touch"
-        bottomText="We'd love to hear from you! Whether you have questions, feedback, or just want to say hello, feel free to reach out to us."
+        bottomText="We'd love to hear from you! Whether you have questions, feedback, or just want to say hello."
       />
-      <ContactSection />
+
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="space-y-10">
+          <ContactInfo />
+          <ContactMap />
+        </div>
+      </section>
     </>
   );
 };
-
 export default Contact;
