@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Plus, Twitter, Facebook, Instagram, Youtube, MoreHorizontal } from 'lucide-react';
+import { Phone, Plus, Twitter, Facebook, Instagram, Youtube, MoreHorizontal } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   const quickLinks = [
